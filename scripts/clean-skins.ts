@@ -46,12 +46,21 @@ function isUnresolvedFormula(value: string): boolean {
   return /^=?\s*[A-Z]+\(/i.test(value.trim());
 }
 
-function buildHeroRoleMap(heroDetailRows: RowObject[]): Map<string, string[]> {
+function buildHeroRoleMap(heroDetailRows: RowObject[], roleTranslationRows: RowObject[]): Map<string, string[]> {
+  const thaiToRole = new Map<string, string>();
+  for (const row of roleTranslationRows) {
+    const thai = text(row['泰文 (Thai)']);
+    if (!thai) continue;
+    thaiToRole.set(thai, text(row['职业']));
+  }
+
   const map = new Map<string, string[]>();
   for (const row of heroDetailRows) {
     const heroName = text(row['英雄名称']);
     if (!heroName) continue;
-    map.set(heroName, parseRoles(text(row['主职业'])));
+    const thaiRole = text(row['职业']);
+    const roleText = thaiToRole.get(thaiRole) ?? '';
+    map.set(heroName, parseRoles(roleText));
   }
   return map;
 }
@@ -139,11 +148,11 @@ function assertHeaders(rows: RowObject[], warnings: string[]) {
   }
 }
 
-export function cleanDataset(input: { skinRows: RowObject[]; heroRows: RowObject[]; qualityRows: RowObject[]; heroDetailRows?: RowObject[] }): CleanResult {
+export function cleanDataset(input: { skinRows: RowObject[]; heroRows: RowObject[]; qualityRows: RowObject[]; heroDetailRows?: RowObject[]; roleTranslationRows?: RowObject[] }): CleanResult {
   const warnings: string[] = [];
   assertHeaders(input.skinRows, warnings);
   const usedIds = new Set<string>();
-  const heroRoleMap = buildHeroRoleMap(input.heroDetailRows ?? []);
+  const heroRoleMap = buildHeroRoleMap(input.heroDetailRows ?? [], input.roleTranslationRows ?? []);
 
   const skins = input.skinRows.flatMap<Skin>((row) => {
     const heroName = text(row.hero_name);
