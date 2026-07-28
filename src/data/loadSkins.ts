@@ -1,8 +1,12 @@
 import type { Hero, QualityTagAsset, Skin, SkinDataset, SyncMeta } from '../types/skin';
 
-async function fetchJson<T>(url: string, fallback: T): Promise<T> {
+function withBase(path: string): string {
+  return `${import.meta.env.BASE_URL.replace(/\/$/, '')}${path}`;
+}
+
+async function fetchJson<T>(path: string, fallback: T): Promise<T> {
   try {
-    const response = await fetch(url, { cache: 'no-store' });
+    const response = await fetch(withBase(path), { cache: 'no-store' });
     if (!response.ok) return fallback;
     return (await response.json()) as T;
   } catch {
@@ -17,6 +21,14 @@ export async function loadSkinDataset(): Promise<SkinDataset> {
     fetchJson<QualityTagAsset[]>('/data/quality-tags.json', []),
     fetchJson<SyncMeta | null>('/data/sync-meta.json', null),
   ]);
+
+  for (const skin of skins) {
+    if (skin.poster.local) skin.poster.local = withBase(skin.poster.local);
+    if (skin.poster.thumbnail) skin.poster.thumbnail = withBase(skin.poster.thumbnail);
+  }
+  for (const tag of qualityTags) {
+    if (tag.local) tag.local = withBase(tag.local);
+  }
 
   return { skins, heroes, qualityTags, meta };
 }
