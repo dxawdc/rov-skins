@@ -1,0 +1,44 @@
+[
+  {
+    "quality": "A",
+    "tag": "EVO",
+    "token": "YLYQbIRpao0eH5xw7sfcjXb9ntd",
+    "local": "/images/quality-tags/evo.webp"
+  },
+  {
+    "quality": "S",
+    "tag": "Heroic",
+    "token": "Nxp9bRthHo394nxYE7wcPOo5nod",
+    "local": "/images/quality-tags/heroic.webp"
+  },
+  {
+    "quality": "S+",
+    "tag": "Epic",
+    "token": "AHxFb4tTOoKQ30x5DqEcbQ5onLb",
+    "local": "/images/quality-tags/epic.webp"
+  },
+  {
+    "quality": "SS",
+    "tag": "Limited",
+    "token": "GmmUbtwgMoKrUTx214VckPsSnKc",
+    "local": "/images/quality-tags/limited.webp"
+  },
+  {
+    "quality": "SS+",
+    "tag": "Legend",
+    "token": "CkQ7bVSr2oE860xFabLcQULxnzb",
+    "local": "/images/quality-tags/legend.webp"
+  },
+  {
+    "quality": "SSS",
+    "tag": "Prestige",
+    "token": "HxpqbAPFvoyaNKxn24jceLJWnUe",
+    "local": "/images/quality-tags/prestige.webp"
+  },
+  {
+    "quality": "SSS+",
+    "tag": "Ultimate",
+    "token": "WAZqbPBiuoLGqZx06GycFqHanOe",
+    "local": "/images/quality-tags/ultimate.webp"
+  }
+]

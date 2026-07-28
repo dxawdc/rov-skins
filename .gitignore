@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.tmpfiles/
+.playwright-mcp/
+.env
+*.log
