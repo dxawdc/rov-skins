@@ -42,6 +42,20 @@ function parseRoles(value: string): string[] {
     .filter(Boolean);
 }
 
+function isUnresolvedFormula(value: string): boolean {
+  return /^=?\s*[A-Z]+\(/i.test(value.trim());
+}
+
+function buildHeroRoleMap(heroDetailRows: RowObject[]): Map<string, string[]> {
+  const map = new Map<string, string[]>();
+  for (const row of heroDetailRows) {
+    const heroName = text(row['英雄名称']);
+    if (!heroName) continue;
+    map.set(heroName, parseRoles(text(row['主职业'])));
+  }
+  return map;
+}
+
 function parseBoolean(value: string): boolean | null {
   if (!value) return null;
   if (/^(是|yes|true|1|y)$/i.test(value)) return true;
@@ -125,10 +139,11 @@ function assertHeaders(rows: RowObject[], warnings: string[]) {
   }
 }
 
-export function cleanDataset(input: { skinRows: RowObject[]; heroRows: RowObject[]; qualityRows: RowObject[] }): CleanResult {
+export function cleanDataset(input: { skinRows: RowObject[]; heroRows: RowObject[]; qualityRows: RowObject[]; heroDetailRows?: RowObject[] }): CleanResult {
   const warnings: string[] = [];
   assertHeaders(input.skinRows, warnings);
   const usedIds = new Set<string>();
+  const heroRoleMap = buildHeroRoleMap(input.heroDetailRows ?? []);
 
   const skins = input.skinRows.flatMap<Skin>((row) => {
     const heroName = text(row.hero_name);
@@ -143,7 +158,19 @@ export function cleanDataset(input: { skinRows: RowObject[]; heroRows: RowObject
     if (usedIds.has(id)) id = `${id}-${rowNumber}`;
     usedIds.add(id);
 
-    const heroRoles = parseRoles(text(row['英雄职业']));
+    const rawRoleText = text(row['英雄职业']);
+    let heroRoles: string[];
+    if (isUnresolvedFormula(rawRoleText)) {
+      const lookedUp = heroRoleMap.get(heroName);
+      if (lookedUp) {
+        heroRoles = lookedUp;
+      } else {
+        heroRoles = [];
+        warnings.push(`第 ${rowNumber} 行英雄职业公式未能解析，且英雄详情表中找不到「${heroName}」`);
+      }
+    } else {
+      heroRoles = parseRoles(rawRoleText);
+    }
     const quality = normalizeQuality(text(row['品质']));
     const qualityTag = resolveQualityTag(quality, text(row['皮肤品质标签']));
     const obtainMethod = normalizeObtainMethod(text(row['获取方式']));

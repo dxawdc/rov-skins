@@ -30,6 +30,7 @@ const config = {
   spreadsheetToken: process.env.FEISHU_SPREADSHEET_TOKEN ?? 'VSFrsnjtyhMJq0tYsW9c5tVPnMg',
   skinSheetId: process.env.FEISHU_SKIN_SHEET_ID ?? '0LLtTx',
   heroSheetId: process.env.FEISHU_HERO_SHEET_ID ?? '1FVXHq',
+  heroDetailSheetId: process.env.FEISHU_HERO_DETAIL_SHEET_ID ?? '2OUOPQ',
   qualitySheetId: process.env.FEISHU_QUALITY_SHEET_ID ?? 'XIg8ge',
   obtainSheetId: process.env.FEISHU_OBTAIN_SHEET_ID ?? 'ZBF8aL',
 };
@@ -89,14 +90,14 @@ async function writeJson(filePath: string, value: unknown) {
 async function main() {
   const skipImages = process.argv.includes('--skip-images');
   const token = await getTenantToken();
-  const [skinSheet, heroSheet, qualitySheet] = await Promise.all([
+  const [skinSheet, heroSheet, qualitySheet, heroDetailSheet] = await Promise.all([
     readSheet(token, config.skinSheetId, 'A1:X1113'),
     readSheet(token, config.heroSheetId, 'A1:G129'),
     readSheet(token, config.qualitySheetId, 'A1:P20'),
-    readSheet(token, config.obtainSheetId, 'A1:A21'),
+    readSheet(token, config.heroDetailSheetId, 'B1:D200'),
   ]);
 
-  const result = cleanDataset({ skinRows: skinSheet.rows, heroRows: heroSheet.rows, qualityRows: qualitySheet.rows });
+  const result = cleanDataset({ skinRows: skinSheet.rows, heroRows: heroSheet.rows, qualityRows: qualitySheet.rows, heroDetailRows: heroDetailSheet.rows });
   if (!skipImages) {
     const imageWarnings = await downloadImages(result.skins, { token });
     result.warnings.push(...imageWarnings);
