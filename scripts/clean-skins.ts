@@ -94,6 +94,8 @@ function extractImageToken(value: unknown): string | undefined {
     return undefined;
   }
   const record = value as Record<string, unknown>;
+  if (typeof record.fileToken === 'string' && record.fileToken) return record.fileToken;
+  if (typeof record.file_token === 'string' && record.file_token) return record.file_token;
   if (typeof record.image_token === 'string' && record.image_token) return record.image_token;
   if (typeof record.image_id === 'string' && record.image_id) return record.image_id;
   for (const nested of Object.values(record)) {
