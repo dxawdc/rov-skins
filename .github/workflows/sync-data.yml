@@ -12,37 +12,5 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Sync Feishu data
-        run: npm run sync
-        env:
-          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
-          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
-          FEISHU_SPREADSHEET_TOKEN: VSFrsnjtyhMJq0tYsW9c5tVPnMg
-          FEISHU_SKIN_SHEET_ID: 0LLtTx
-          FEISHU_HERO_SHEET_ID: 1FVXHq
-          FEISHU_QUALITY_SHEET_ID: XIg8ge
-          FEISHU_OBTAIN_SHEET_ID: ZBF8aL
-
-      - name: Validate data
-        run: npm run validate:data
-
-      - name: Build
-        run: npm run build
-
-      - name: Commit updated data
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: chore: sync rov skin data
-          file_pattern: public/data/*.json public/images/skins/*
+      - name: noop
+        run: echo hi
