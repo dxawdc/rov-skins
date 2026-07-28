@@ -1,374 +1,1154 @@
 [
   {
-    "heroName": "Airi"
-  },
-  {
-    "heroName": "Aleister"
-  },
-  {
-    "heroName": "Alice"
-  },
-  {
-    "heroName": "Allain"
-  },
-  {
-    "heroName": "Amily"
-  },
-  {
-    "heroName": "Annette"
-  },
-  {
-    "heroName": "Aoi"
-  },
-  {
-    "heroName": "Arduin"
-  },
-  {
-    "heroName": "Arum"
-  },
-  {
-    "heroName": "Astrid"
-  },
-  {
-    "heroName": "Ata"
-  },
-  {
-    "heroName": "Aya"
-  },
-  {
-    "heroName": "Azzen'Ka"
-  },
-  {
-    "heroName": "Baldum"
-  },
-  {
-    "heroName": "Bijan"
-  },
-  {
-    "heroName": "Billow"
-  },
-  {
-    "heroName": "Biron"
-  },
-  {
-    "heroName": "Bolt Baron"
-  },
-  {
-    "heroName": "Bonnie"
-  },
-  {
-    "heroName": "Bright"
-  },
-  {
-    "heroName": "Butterfly"
-  },
-  {
-    "heroName": "Capheny"
-  },
-  {
-    "heroName": "Celica"
-  },
-  {
-    "heroName": "Charlotte"
-  },
-  {
-    "heroName": "Chaugnar"
-  },
-  {
-    "heroName": "Cresht"
-  },
-  {
-    "heroName": "D'Arcy"
-  },
-  {
-    "heroName": "Dextra"
-  },
-  {
-    "heroName": "Diao Chan"
-  },
-  {
-    "heroName": "Dirak"
-  },
-  {
-    "heroName": "Dolia"
-  },
-  {
-    "heroName": "Eland'orr"
-  },
-  {
-    "heroName": "Elsu"
-  },
-  {
-    "heroName": "Enzo"
-  },
-  {
-    "heroName": "Erin"
-  },
-  {
-    "heroName": "Errol"
-  },
-  {
-    "heroName": "Fennik"
-  },
-  {
-    "heroName": "Florentino"
-  },
-  {
-    "heroName": "Gildur"
-  },
-  {
-    "heroName": "Goverra"
-  },
-  {
-    "heroName": "Grakk"
-  },
-  {
-    "heroName": "Hayate"
-  },
-  {
-    "heroName": "Heino"
-  },
-  {
-    "heroName": "Helen"
-  },
-  {
-    "heroName": "Iggy"
-  },
-  {
-    "heroName": "Ignis"
-  },
-  {
-    "heroName": "Ilumia"
-  },
-  {
-    "heroName": "Ishar"
-  },
-  {
-    "heroName": "Jinna"
-  },
-  {
-    "heroName": "Kahlii"
-  },
-  {
-    "heroName": "Kaine"
-  },
-  {
-    "heroName": "Keera"
-  },
-  {
-    "heroName": "Kil'Groth"
-  },
-  {
-    "heroName": "Kriknak"
-  },
-  {
-    "heroName": "Krixi"
-  },
-  {
-    "heroName": "Krizzix"
-  },
-  {
-    "heroName": "Lauriel"
-  },
-  {
-    "heroName": "Laville"
-  },
-  {
-    "heroName": "Liliana"
-  },
-  {
-    "heroName": "Lindis"
-  },
-  {
-    "heroName": "Lorion"
-  },
-  {
-    "heroName": "Lu Bu"
-  },
-  {
-    "heroName": "Lumburr"
-  },
-  {
-    "heroName": "Maloch"
-  },
-  {
-    "heroName": "Marja"
-  },
-  {
-    "heroName": "Max"
-  },
-  {
-    "heroName": "Mganga"
-  },
-  {
-    "heroName": "Mina"
-  },
-  {
-    "heroName": "Ming"
-  },
-  {
-    "heroName": "Moren"
-  },
-  {
-    "heroName": "Mortos"
-  },
-  {
-    "heroName": "Murad"
-  },
-  {
-    "heroName": "Nakroth"
-  },
-  {
-    "heroName": "Natalya"
-  },
-  {
-    "heroName": "Omega"
-  },
-  {
-    "heroName": "Omen"
-  },
-  {
-    "heroName": "Ormarr"
-  },
-  {
-    "heroName": "Paine"
-  },
-  {
-    "heroName": "Payna"
-  },
-  {
-    "heroName": "Preyta"
-  },
-  {
-    "heroName": "Qi"
-  },
-  {
-    "heroName": "Quillen"
-  },
-  {
-    "heroName": "Raz"
-  },
-  {
-    "heroName": "Riktor"
-  },
-  {
-    "heroName": "Rouie"
-  },
-  {
-    "heroName": "Rourke"
-  },
-  {
-    "heroName": "Roxie"
-  },
-  {
-    "heroName": "Ryoma"
-  },
-  {
-    "heroName": "Sephera"
-  },
-  {
-    "heroName": "Sinestrea"
-  },
-  {
-    "heroName": "Skud"
-  },
-  {
-    "heroName": "Slimz"
-  },
-  {
-    "heroName": "Stuart"
-  },
-  {
-    "heroName": "Superman"
-  },
-  {
-    "heroName": "Taara"
-  },
-  {
-    "heroName": "Tachi"
-  },
-  {
-    "heroName": "TeeMee"
-  },
-  {
-    "heroName": "Teeri"
-  },
-  {
-    "heroName": "Tel'Annas"
-  },
-  {
-    "heroName": "Thane"
-  },
-  {
-    "heroName": "The Flash"
-  },
-  {
-    "heroName": "Thorne"
-  },
-  {
-    "heroName": "Toro"
-  },
-  {
-    "heroName": "Tulen"
-  },
-  {
-    "heroName": "Valhein"
-  },
-  {
-    "heroName": "Veera"
-  },
-  {
-    "heroName": "Veres"
-  },
-  {
-    "heroName": "Violet"
-  },
-  {
-    "heroName": "Volkath"
-  },
-  {
-    "heroName": "Wisp"
-  },
-  {
-    "heroName": "Wonder Woman"
-  },
-  {
-    "heroName": "WuKong"
-  },
-  {
-    "heroName": "Xeniel"
-  },
-  {
-    "heroName": "Y'bneth"
-  },
-  {
-    "heroName": "Yan"
-  },
-  {
-    "heroName": "Yena"
-  },
-  {
-    "heroName": "Yorn"
-  },
-  {
-    "heroName": "Yue"
-  },
-  {
-    "heroName": "Zanis"
-  },
-  {
-    "heroName": "Zata"
-  },
-  {
-    "heroName": "Zephys"
-  },
-  {
-    "heroName": "Zill"
-  },
-  {
-    "heroName": "Zip"
-  },
-  {
-    "heroName": "Zuka"
+    "heroName": "Valhein",
+    "wikiPath": "/th/wiki/Valhein",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Valhein",
+    "rovEnglishName": "Valhein",
+    "rovChineseName": "凡恩",
+    "hokHero": "狄仁杰（老版）",
+    "portingNote": "部分移植 / 早期历史版本移植"
+  },
+  {
+    "heroName": "Zanis",
+    "wikiPath": "/th/wiki/Zanis",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Zanis",
+    "rovEnglishName": "Zanis",
+    "rovChineseName": "赵云",
+    "hokHero": "典韦",
+    "portingNote": "完全移植（技能为典韦，外貌命名为赵云）"
+  },
+  {
+    "heroName": "Yorn",
+    "wikiPath": "/th/wiki/Yorn",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Yorn",
+    "rovEnglishName": "Yorn",
+    "rovChineseName": "勇",
+    "hokHero": "鲁班七号",
+    "portingNote": "部分移植（共享扫射被动与全图大招）"
+  },
+  {
+    "heroName": "Thane",
+    "wikiPath": "/th/wiki/Thane",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Thane",
+    "rovEnglishName": "Thane",
+    "rovChineseName": "萨尼",
+    "hokHero": "项羽",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Krixi",
+    "wikiPath": "/th/wiki/Krixi",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Krixi",
+    "rovEnglishName": "Krixi",
+    "rovChineseName": "克里希",
+    "hokHero": "小乔",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Ormarr",
+    "wikiPath": "/th/wiki/Ormarr",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Ormarr",
+    "rovEnglishName": "Ormarr",
+    "rovChineseName": "渥马尔",
+    "hokHero": "钟无艳",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Zephys",
+    "wikiPath": "/th/wiki/Zephys",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Zephys",
+    "rovEnglishName": "Zephys",
+    "rovChineseName": "瑟斐斯",
+    "hokHero": "赵云",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Lu Bu",
+    "wikiPath": "/th/wiki/Lu_Bu",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Lu_Bu",
+    "rovEnglishName": "Lu Bu",
+    "rovChineseName": "吕布",
+    "hokHero": "曹操",
+    "portingNote": "完全移植（技能为曹操，外貌命名为吕布）"
+  },
+  {
+    "heroName": "Alice",
+    "wikiPath": "/th/wiki/Alice",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Alice",
+    "rovEnglishName": "Alice",
+    "rovChineseName": "爱丽丝",
+    "hokHero": "孙膑",
+    "portingNote": "部分移植"
+  },
+  {
+    "heroName": "Mganga",
+    "wikiPath": "/th/wiki/Mganga",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Mganga",
+    "rovEnglishName": "Mganga",
+    "rovChineseName": "穆加爵",
+    "hokHero": "扁鹊",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Gildur",
+    "wikiPath": "/th/wiki/Gildur",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Gildur",
+    "rovEnglishName": "Gildur",
+    "rovChineseName": "哥德尔",
+    "hokHero": "墨子",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Butterfly",
+    "wikiPath": "/th/wiki/Butterfly",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Butterfly",
+    "rovEnglishName": "Butterfly",
+    "rovChineseName": "刀锋宝贝",
+    "hokHero": "阿轲（老版荆轲）",
+    "portingNote": "完全移植（保留了老版击杀刷新机制）"
+  },
+  {
+    "heroName": "Taara",
+    "wikiPath": "/th/wiki/Taara",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Taara",
+    "rovEnglishName": "Taara",
+    "rovChineseName": "塔拉",
+    "hokHero": "程咬金",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Toro",
+    "wikiPath": "/th/wiki/Toro",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Toro",
+    "rovEnglishName": "Toro",
+    "rovChineseName": "牛魔王",
+    "hokHero": "廉颇",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Mina",
+    "wikiPath": "/th/wiki/Mina",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Mina",
+    "rovEnglishName": "Mina",
+    "rovChineseName": "美娜",
+    "hokHero": "白起",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Veera",
+    "wikiPath": "/th/wiki/Veera",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Veera",
+    "rovEnglishName": "Veera",
+    "rovChineseName": "薇菈",
+    "hokHero": "妲己",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Kahlii",
+    "wikiPath": "/th/wiki/Kahlii",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Kahlii",
+    "rovEnglishName": "Kahlii",
+    "rovChineseName": "卡莉",
+    "hokHero": "嬴政",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Azzen'Ka",
+    "wikiPath": "/th/wiki/Azzen%27Ka",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Azzen%27Ka",
+    "rovEnglishName": "Azzen'Ka",
+    "rovChineseName": "阿兹卡",
+    "hokHero": "甄姬",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Chaugnar",
+    "wikiPath": "/th/wiki/Chaugnar",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Chaugnar",
+    "rovEnglishName": "Chaugnar",
+    "rovChineseName": "查戈纳尔",
+    "hokHero": "庄周",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Omega",
+    "wikiPath": "/th/wiki/Omega",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Omega",
+    "rovEnglishName": "Omega",
+    "rovChineseName": "欧米茄",
+    "hokHero": "刘禅",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Violet",
+    "wikiPath": "/th/wiki/Violet",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Violet",
+    "rovEnglishName": "Violet",
+    "rovChineseName": "堇",
+    "hokHero": "孙尚香",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Diao Chan",
+    "wikiPath": "/th/wiki/Diao_Chan",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Diao_Chan",
+    "rovEnglishName": "Diao Chan",
+    "rovChineseName": "貂蝉",
+    "hokHero": "王昭君",
+    "portingNote": "完全移植（技能为王昭君，外貌命名为貂蝉）"
+  },
+  {
+    "heroName": "Nakroth",
+    "wikiPath": "/th/wiki/Nakroth",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Nakroth",
+    "rovEnglishName": "Nakroth",
+    "rovChineseName": "纳克罗斯",
+    "hokHero": "韩信",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Grakk",
+    "wikiPath": "/th/wiki/Grakk",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Grakk",
+    "rovEnglishName": "Grakk",
+    "rovChineseName": "夸克",
+    "hokHero": "钟馗",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Fennik",
+    "wikiPath": "/th/wiki/Fennik",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Fennik",
+    "rovEnglishName": "Fennik",
+    "rovChineseName": "菲尼克",
+    "hokHero": "李元芳",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Aleister",
+    "wikiPath": "/th/wiki/Aleister",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Aleister",
+    "rovEnglishName": "Aleister",
+    "rovChineseName": "阿莱斯特",
+    "hokHero": "张良",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Lumburr",
+    "wikiPath": "/th/wiki/Lumburr",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Lumburr",
+    "rovEnglishName": "Lumburr",
+    "rovChineseName": "朗博",
+    "hokHero": "牛魔",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Payna",
+    "wikiPath": "/th/wiki/Payna",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Payna",
+    "rovEnglishName": "Payna",
+    "rovChineseName": "佩娜（已绝版）",
+    "hokHero": "蔡文姬",
+    "portingNote": "完全移植（旧版，现已被海伦替换）"
+  },
+  {
+    "heroName": "Natalya",
+    "wikiPath": "/th/wiki/Natalya",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Natalya",
+    "rovEnglishName": "Natalya",
+    "rovChineseName": "娜塔亚",
+    "hokHero": "安琪拉",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Cresht",
+    "wikiPath": "/th/wiki/Cresht",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Cresht",
+    "rovEnglishName": "Cresht",
+    "rovChineseName": "克莱斯",
+    "hokHero": "张飞",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Jinna",
+    "wikiPath": "/th/wiki/Jinna",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Jinna",
+    "rovEnglishName": "Jinna",
+    "rovChineseName": "金纳",
+    "hokHero": "高渐离",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Maloch",
+    "wikiPath": "/th/wiki/Maloch",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Maloch",
+    "rovEnglishName": "Maloch",
+    "rovChineseName": "马洛斯",
+    "hokHero": "吕布",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Ilumia",
+    "wikiPath": "/th/wiki/Ilumia",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Ilumia",
+    "rovEnglishName": "Ilumia",
+    "rovChineseName": "卢蜜亚",
+    "hokHero": "武则天",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "WuKong",
+    "wikiPath": "/th/wiki/WuKong",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/WuKong",
+    "rovEnglishName": "WuKong",
+    "rovChineseName": "悟空",
+    "hokHero": "孙悟空",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Kriknak",
+    "wikiPath": "/th/wiki/Kriknak",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Kriknak",
+    "rovEnglishName": "Kriknak",
+    "rovChineseName": "科里纳卡",
+    "hokHero": "娜可露露",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Mortos",
+    "wikiPath": "/th/wiki/Mortos",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Mortos",
+    "rovEnglishName": "Mortos",
+    "rovChineseName": "莫托斯 / 亚瑟",
+    "hokHero": "亚瑟",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Batman",
+    "wikiPath": "/th/wiki/Batman",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Batman",
+    "rovEnglishName": "Batman",
+    "rovChineseName": "蝙蝠侠（已绝版）",
+    "hokHero": "兰陵王",
+    "portingNote": "完全移植（DC版权到期，现已被凯恩替换）"
+  },
+  {
+    "heroName": "Slimz",
+    "wikiPath": "/th/wiki/Slimz",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Slimz",
+    "rovEnglishName": "Slimz",
+    "rovChineseName": "史兰兹",
+    "hokHero": "无",
+    "portingNote": "原创 / 结合极少部分王者机制"
+  },
+  {
+    "heroName": "Preyta",
+    "wikiPath": "/th/wiki/Preyta",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Preyta",
+    "rovEnglishName": "Preyta",
+    "rovChineseName": "普雷塔",
+    "hokHero": "姜子牙（老版）",
+    "portingNote": "部分移植"
+  },
+  {
+    "heroName": "Skud",
+    "wikiPath": "/th/wiki/Skud",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Skud",
+    "rovEnglishName": "Skud",
+    "rovChineseName": "司科德",
+    "hokHero": "达摩 / 苏烈",
+    "portingNote": "部分移植（融合机制）"
+  },
+  {
+    "heroName": "Airi",
+    "wikiPath": "/th/wiki/Airi",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Airi",
+    "rovEnglishName": "Airi",
+    "rovChineseName": "爱里",
+    "hokHero": "宫本武藏（老版）",
+    "portingNote": "完全移植（保留了老版吹风大招机制）"
+  },
+  {
+    "heroName": "Ignis",
+    "wikiPath": "/th/wiki/Ignis",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Ignis",
+    "rovEnglishName": "Ignis",
+    "rovChineseName": "伊耿斯",
+    "hokHero": "周瑜（老版）",
+    "portingNote": "部分移植"
+  },
+  {
+    "heroName": "Zuka",
+    "wikiPath": "/th/wiki/Zuka",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Zuka",
+    "rovEnglishName": "Zuka",
+    "rovChineseName": "祖卡",
+    "hokHero": "无",
+    "portingNote": "纯原创"
+  },
+  {
+    "heroName": "Raz",
+    "wikiPath": "/th/wiki/Raz",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Raz",
+    "rovEnglishName": "Raz",
+    "rovChineseName": "拉兹",
+    "hokHero": "不知火舞",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Murad",
+    "wikiPath": "/th/wiki/Murad",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Murad",
+    "rovEnglishName": "Murad",
+    "rovChineseName": "莫拉",
+    "hokHero": "李白",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Zill",
+    "wikiPath": "/th/wiki/Zill",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Zill",
+    "rovEnglishName": "Zill",
+    "rovChineseName": "齐尔",
+    "hokHero": "无",
+    "portingNote": "原创 / 部分借用老李白或宫本大招无敌斩机制"
+  },
+  {
+    "heroName": "Lauriel",
+    "wikiPath": "/th/wiki/Lauriel",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Lauriel",
+    "rovEnglishName": "Lauriel",
+    "rovChineseName": "萝尔",
+    "hokHero": "貂蝉",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "The Joker",
+    "wikiPath": "/th/wiki/The_Joker",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/The_Joker",
+    "rovEnglishName": "The Joker",
+    "rovChineseName": "小丑（已绝版）",
+    "hokHero": "虞姬",
+    "portingNote": "完全移植（DC版权到期，现已被斯图尔特替换）"
+  },
+  {
+    "heroName": "Arduin",
+    "wikiPath": "/th/wiki/Arduin",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Arduin",
+    "rovEnglishName": "Arduin",
+    "rovChineseName": "阿杜恩",
+    "hokHero": "夏侯惇",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Astrid",
+    "wikiPath": "/th/wiki/Astrid",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Astrid",
+    "rovEnglishName": "Astrid",
+    "rovChineseName": "艾翠丝",
+    "hokHero": "老版花木兰（部分）",
+    "portingNote": "原创 / 部分移植"
+  },
+  {
+    "heroName": "Tel'Annas",
+    "wikiPath": "/th/wiki/Tel%27Annas",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Tel%27Annas",
+    "rovEnglishName": "Tel'Annas",
+    "rovChineseName": "特尔安娜丝",
+    "hokHero": "后羿 / 伽罗",
+    "portingNote": "部分移植（融合机制）"
+  },
+  {
+    "heroName": "Kil'Groth",
+    "wikiPath": "/th/wiki/Kil%27Groth",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Kil%27Groth",
+    "rovEnglishName": "Kil'Groth",
+    "rovChineseName": "凯格路士",
+    "hokHero": "老夫子（老版）",
+    "portingNote": "完全移植（历史版本移植）"
+  },
+  {
+    "heroName": "Ryoma",
+    "wikiPath": "/th/wiki/Ryoma",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Ryoma",
+    "rovEnglishName": "Ryoma",
+    "rovChineseName": "龙马",
+    "hokHero": "橘右京",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Superman",
+    "wikiPath": "/th/wiki/Superman",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Superman",
+    "rovEnglishName": "Superman",
+    "rovChineseName": "超人",
+    "hokHero": "关羽",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Wonder Woman",
+    "wikiPath": "/th/wiki/Wonder_Woman",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Wonder_Woman",
+    "rovEnglishName": "Wonder Woman",
+    "rovChineseName": "神力女超人",
+    "hokHero": "无",
+    "portingNote": "原创"
+  },
+  {
+    "heroName": "Moren",
+    "wikiPath": "/th/wiki/Moren",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Moren",
+    "rovEnglishName": "Moren",
+    "rovChineseName": "摩恩",
+    "hokHero": "刘备（老版远程）",
+    "portingNote": "完全移植（保留了最早期的刘备远程散弹机制）"
+  },
+  {
+    "heroName": "Xeniel",
+    "wikiPath": "/th/wiki/Xeniel",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Xeniel",
+    "rovEnglishName": "Xeniel",
+    "rovChineseName": "赞尼尔",
+    "hokHero": "刘邦",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Lindis",
+    "wikiPath": "/th/wiki/Lindis",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Lindis",
+    "rovEnglishName": "Lindis",
+    "rovChineseName": "琳蒂",
+    "hokHero": "成吉思汗",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "TeeMee",
+    "wikiPath": "/th/wiki/TeeMee",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/TeeMee",
+    "rovEnglishName": "TeeMee",
+    "rovChineseName": "提米",
+    "hokHero": "太乙真人",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Tulen",
+    "wikiPath": "/th/wiki/Tulen",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Tulen",
+    "rovEnglishName": "Tulen",
+    "rovChineseName": "图伦",
+    "hokHero": "诸葛亮",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Omen",
+    "wikiPath": "/th/wiki/Omen",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Omen",
+    "rovEnglishName": "Omen",
+    "rovChineseName": "夜叉",
+    "hokHero": "老夫子（新版）",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Max",
+    "wikiPath": "/th/wiki/Max",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Max",
+    "rovEnglishName": "Max",
+    "rovChineseName": "麦克思",
+    "hokHero": "哪吒",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Liliana",
+    "wikiPath": "/th/wiki/Liliana",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Liliana",
+    "rovEnglishName": "Liliana",
+    "rovChineseName": "莉莉安",
+    "hokHero": "裴擒虎",
+    "portingNote": "部分移植（法系双形态机制对应）"
+  },
+  {
+    "heroName": "Wisp",
+    "wikiPath": "/th/wiki/Wisp",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Wisp",
+    "rovEnglishName": "Wisp",
+    "rovChineseName": "灵灵",
+    "hokHero": "无",
+    "portingNote": "纯原创"
+  },
+  {
+    "heroName": "The Flash",
+    "wikiPath": "/th/wiki/The_Flash",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/The_Flash",
+    "rovEnglishName": "The Flash",
+    "rovChineseName": "闪电侠",
+    "hokHero": "无",
+    "portingNote": "纯原创"
+  },
+  {
+    "heroName": "Arum",
+    "wikiPath": "/th/wiki/Arum",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Arum",
+    "rovEnglishName": "Arum",
+    "rovChineseName": "艾瑞",
+    "hokHero": "东皇太一",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Rourke",
+    "wikiPath": "/th/wiki/Rourke",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Rourke",
+    "rovEnglishName": "Rourke",
+    "rovChineseName": "洛克",
+    "hokHero": "刘备（新版近战）",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Marja",
+    "wikiPath": "/th/wiki/Marja",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Marja",
+    "rovEnglishName": "Marja",
+    "rovChineseName": "玛迦",
+    "hokHero": "芈月",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Baldum",
+    "wikiPath": "/th/wiki/Baldum",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Baldum",
+    "rovEnglishName": "Baldum",
+    "rovChineseName": "伯顿",
+    "hokHero": "盾山（背摔）",
+    "portingNote": "原创 / 部分机制借用"
+  },
+  {
+    "heroName": "Roxie",
+    "wikiPath": "/th/wiki/Roxie",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Roxie",
+    "rovEnglishName": "Roxie",
+    "rovChineseName": "洛克熙",
+    "hokHero": "无",
+    "portingNote": "纯原创"
+  },
+  {
+    "heroName": "Annette",
+    "wikiPath": "/th/wiki/Annette",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Annette",
+    "rovEnglishName": "Annette",
+    "rovChineseName": "安奈特",
+    "hokHero": "无",
+    "portingNote": "纯原创"
+  },
+  {
+    "heroName": "Amily",
+    "wikiPath": "/th/wiki/Amily",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Amily",
+    "rovEnglishName": "Amily",
+    "rovChineseName": "艾蜜莉",
+    "hokHero": "铠",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Y'bneth",
+    "wikiPath": "/th/wiki/Y%27bneth",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Y%27bneth",
+    "rovEnglishName": "Y'bneth",
+    "rovChineseName": "古木",
+    "hokHero": "无",
+    "portingNote": "纯原创"
+  },
+  {
+    "heroName": "Elsu",
+    "wikiPath": "/th/wiki/Elsu",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Elsu",
+    "rovEnglishName": "Elsu",
+    "rovChineseName": "苏",
+    "hokHero": "百里守约",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Riktor",
+    "wikiPath": "/th/wiki/Riktor",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Riktor",
+    "rovEnglishName": "Riktor",
+    "rovChineseName": "瑞克",
+    "hokHero": "无",
+    "portingNote": "纯原创（独特的地形判定机制）"
+  },
+  {
+    "heroName": "Wiro",
+    "wikiPath": "/th/wiki/Wiro",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Wiro",
+    "rovEnglishName": "Wiro",
+    "rovChineseName": "维罗",
+    "hokHero": "苏烈",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Quillen",
+    "wikiPath": "/th/wiki/Quillen",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Quillen",
+    "rovEnglishName": "Quillen",
+    "rovChineseName": "奎伦",
+    "hokHero": "阿轲（新版）",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Sephera",
+    "wikiPath": "/th/wiki/Sephera",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Sephera",
+    "rovEnglishName": "Sephera",
+    "rovChineseName": "澜（台服名为澜） / 赛菲拉",
+    "hokHero": "杨玉环",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Florentino",
+    "wikiPath": "/th/wiki/Florentino",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Florentino",
+    "rovEnglishName": "Florentino",
+    "rovChineseName": "弗洛伦",
+    "hokHero": "无",
+    "portingNote": "纯原创（捡花位移机制）"
+  },
+  {
+    "heroName": "Veres",
+    "wikiPath": "/th/wiki/Veres",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Veres",
+    "rovEnglishName": "Veres",
+    "rovChineseName": "绯泪",
+    "hokHero": "无",
+    "portingNote": "纯原创"
+  },
+  {
+    "heroName": "D'Arcy",
+    "wikiPath": "/th/wiki/D%27Arcy",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/D%27Arcy",
+    "rovEnglishName": "D'Arcy",
+    "rovChineseName": "达尔西",
+    "hokHero": "无",
+    "portingNote": "纯原创"
+  },
+  {
+    "heroName": "Hayate",
+    "wikiPath": "/th/wiki/Hayate",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Hayate",
+    "rovEnglishName": "Hayate",
+    "rovChineseName": "亥犽",
+    "hokHero": "马可波罗",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Capheny",
+    "wikiPath": "/th/wiki/Capheny",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Capheny",
+    "rovEnglishName": "Capheny",
+    "rovChineseName": "卡芬妮",
+    "hokHero": "无",
+    "portingNote": "纯原创（无平A后摇边走边射）"
+  },
+  {
+    "heroName": "Errol",
+    "wikiPath": "/th/wiki/Errol",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Errol",
+    "rovEnglishName": "Errol",
+    "rovChineseName": "埃罗",
+    "hokHero": "狂铁",
+    "portingNote": "部分移植（前中期部分机制对应）"
+  },
+  {
+    "heroName": "Yena",
+    "wikiPath": "/th/wiki/Yena",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Yena",
+    "rovEnglishName": "Yena",
+    "rovChineseName": "叶娜",
+    "hokHero": "花木兰（新版）",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Enzo",
+    "wikiPath": "/th/wiki/Enzo",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Enzo",
+    "rovEnglishName": "Enzo",
+    "rovChineseName": "银昼",
+    "hokHero": "百里玄策",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Zip",
+    "wikiPath": "/th/wiki/Zip",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Zip",
+    "rovEnglishName": "Zip",
+    "rovChineseName": "皮皮",
+    "hokHero": "大乔 / 盾山",
+    "portingNote": "原创 / 吞噬机制缝合"
+  },
+  {
+    "heroName": "Qi",
+    "wikiPath": "/th/wiki/Qi",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Qi",
+    "rovEnglishName": "Qi",
+    "rovChineseName": "筱清",
+    "hokHero": "达摩（新版）",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Celica",
+    "wikiPath": "/th/wiki/Celica",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Celica",
+    "rovEnglishName": "Celica",
+    "rovChineseName": "希露卡",
+    "hokHero": "黄忠",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Volkath",
+    "wikiPath": "/th/wiki/Volkath",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Volkath",
+    "rovEnglishName": "Volkath",
+    "rovChineseName": "沃尔卡斯",
+    "hokHero": "无（类杨戬+名刀曹操）",
+    "portingNote": "原创 / 融合机制改良"
+  },
+  {
+    "heroName": "Krizzix",
+    "wikiPath": "/th/wiki/Krizzix",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Krizzix",
+    "rovEnglishName": "Krizzix",
+    "rovChineseName": "卡瑞兹",
+    "hokHero": "鬼谷子",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Eland'orr",
+    "wikiPath": "/th/wiki/Eland%27orr",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Eland%27orr",
+    "rovEnglishName": "Eland'orr",
+    "rovChineseName": "兰铎",
+    "hokHero": "公孙离",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Ishar",
+    "wikiPath": "/th/wiki/Ishar",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Ishar",
+    "rovEnglishName": "Ishar",
+    "rovChineseName": "依夏",
+    "hokHero": "阿古朵",
+    "portingNote": "原创 / 宠物协同机制改良"
+  },
+  {
+    "heroName": "Dirak",
+    "wikiPath": "/th/wiki/Dirak",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Dirak",
+    "rovEnglishName": "Dirak",
+    "rovChineseName": "狄拉克",
+    "hokHero": "嫦娥（耗蓝承伤）",
+    "portingNote": "原创 / 部分移植"
+  },
+  {
+    "heroName": "Keera",
+    "wikiPath": "/th/wiki/Keera",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Keera",
+    "rovEnglishName": "Keera",
+    "rovChineseName": "绮萝",
+    "hokHero": "云中君 / 暃",
+    "portingNote": "原创（穿墙刺客机制）"
+  },
+  {
+    "heroName": "Ata",
+    "wikiPath": "/th/wiki/Ata",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Ata",
+    "rovEnglishName": "Ata",
+    "rovChineseName": "阿塔",
+    "hokHero": "猪八戒",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Paine",
+    "wikiPath": "/th/wiki/Paine",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Paine",
+    "rovEnglishName": "Paine",
+    "rovChineseName": "潘恩",
+    "hokHero": "司马懿",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Laville",
+    "wikiPath": "/th/wiki/Laville",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Laville",
+    "rovEnglishName": "Laville",
+    "rovChineseName": "拉维尔",
+    "hokHero": "后羿（新版）",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Rouie",
+    "wikiPath": "/th/wiki/Rouie",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Rouie",
+    "rovEnglishName": "Rouie",
+    "rovChineseName": "若伊",
+    "hokHero": "大乔",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Zata",
+    "wikiPath": "/th/wiki/Zata",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Zata",
+    "rovEnglishName": "Zata",
+    "rovChineseName": "飒枷",
+    "hokHero": "上官婉儿",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Allain",
+    "wikiPath": "/th/wiki/Allain",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Allain",
+    "rovEnglishName": "Allain",
+    "rovChineseName": "亚连",
+    "hokHero": "亚连",
+    "portingNote": "反向移植（RoV原创后输入至王者荣耀）"
+  },
+  {
+    "heroName": "Thorne",
+    "wikiPath": "/th/wiki/Thorne",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Thorne",
+    "rovEnglishName": "Thorne",
+    "rovChineseName": "索文",
+    "hokHero": "无",
+    "portingNote": "纯原创（独特的上膛子弹组合机制）"
+  },
+  {
+    "heroName": "Sinestrea",
+    "wikiPath": "/th/wiki/Sinestrea",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Sinestrea",
+    "rovEnglishName": "Sinestrea",
+    "rovChineseName": "苏离",
+    "hokHero": "无",
+    "portingNote": "纯原创（近战远程切换及血量互换机制）"
+  },
+  {
+    "heroName": "Dextra",
+    "wikiPath": "/th/wiki/Dextra",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Dextra",
+    "rovEnglishName": "Dextra",
+    "rovChineseName": "德克丝崔",
+    "hokHero": "无",
+    "portingNote": "纯原创"
+  },
+  {
+    "heroName": "Lorion",
+    "wikiPath": "/th/wiki/Lorion",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Lorion",
+    "rovEnglishName": "Lorion",
+    "rovChineseName": "洛里昂",
+    "hokHero": "无",
+    "portingNote": "纯原创"
+  },
+  {
+    "heroName": "Bright",
+    "wikiPath": "/th/wiki/Bright",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Bright",
+    "rovEnglishName": "Bright",
+    "rovChineseName": "布莱特",
+    "hokHero": "无",
+    "portingNote": "纯原创（真伤与大招延迟结算机制）"
+  },
+  {
+    "heroName": "Aoi",
+    "wikiPath": "/th/wiki/Aoi",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Aoi",
+    "rovEnglishName": "Aoi",
+    "rovChineseName": "星葵",
+    "hokHero": "无",
+    "portingNote": "纯原创（双绳索飞行机制）"
+  },
+  {
+    "heroName": "Iggy",
+    "wikiPath": "/th/wiki/Iggy",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Iggy",
+    "rovEnglishName": "Iggy",
+    "rovChineseName": "伊格",
+    "hokHero": "沈梦溪",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Tachi",
+    "wikiPath": "/th/wiki/Tachi",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Tachi",
+    "rovEnglishName": "Tachi",
+    "rovChineseName": "塔奇",
+    "hokHero": "无",
+    "portingNote": "纯原创"
+  },
+  {
+    "heroName": "Aya",
+    "wikiPath": "/th/wiki/Aya",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Aya",
+    "rovEnglishName": "Aya",
+    "rovChineseName": "芽芽",
+    "hokHero": "瑶",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Yue",
+    "wikiPath": "/th/wiki/Yue",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Yue",
+    "rovEnglishName": "Yue",
+    "rovChineseName": "令月",
+    "hokHero": "干将莫邪",
+    "portingNote": "部分移植（技能改为被动爆发，大招变为后撤保命）"
+  },
+  {
+    "heroName": "Yan",
+    "wikiPath": "/th/wiki/Yan",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Yan",
+    "rovEnglishName": "Yan",
+    "rovChineseName": "青砚",
+    "hokHero": "姬小满",
+    "portingNote": "反向借鉴（姬小满的设计雏形及灵感来源）"
+  },
+  {
+    "heroName": "Helen",
+    "wikiPath": "/th/wiki/Helen",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Helen",
+    "rovEnglishName": "Helen",
+    "rovChineseName": "海伦",
+    "hokHero": "蔡文姬",
+    "portingNote": "完全移植（顶替了绝版的老英雄 Payna）"
+  },
+  {
+    "heroName": "Teeri",
+    "wikiPath": "/th/wiki/Teeri",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Teeri",
+    "rovEnglishName": "Teeri",
+    "rovChineseName": "缇莉",
+    "hokHero": "无",
+    "portingNote": "纯原创"
+  },
+  {
+    "heroName": "Bonnie",
+    "wikiPath": "/th/wiki/Bonnie",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Bonnie",
+    "rovEnglishName": "Bonnie",
+    "rovChineseName": "邦尼",
+    "hokHero": "无",
+    "portingNote": "纯原创"
+  },
+  {
+    "heroName": "Bijan",
+    "wikiPath": "/th/wiki/Bijan",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Bijan",
+    "rovEnglishName": "Bijan",
+    "rovChineseName": "狂飙（比赞）",
+    "hokHero": "孙策",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Kaine",
+    "wikiPath": "/th/wiki/Kaine",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Kaine",
+    "rovEnglishName": "Kaine",
+    "rovChineseName": "凯恩",
+    "hokHero": "兰陵王",
+    "portingNote": "完全移植（顶替了绝版的蝙蝠侠）"
+  },
+  {
+    "heroName": "Stuart",
+    "wikiPath": "/th/wiki/Stuart",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Stuart",
+    "rovEnglishName": "Stuart",
+    "rovChineseName": "斯图尔特",
+    "hokHero": "虞姬",
+    "portingNote": "完全移植（顶替了绝版的小丑）"
+  },
+  {
+    "heroName": "Ming",
+    "wikiPath": "/th/wiki/Ming",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Ming",
+    "rovEnglishName": "Ming",
+    "rovChineseName": "明世隐",
+    "hokHero": "明世隐",
+    "portingNote": "全球发行版本（王者直接同步出海）"
+  },
+  {
+    "heroName": "Erin",
+    "wikiPath": "/th/wiki/Erin",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Erin",
+    "rovEnglishName": "Erin",
+    "rovChineseName": "艾琳",
+    "hokHero": "艾琳",
+    "portingNote": "全球发行版本（王者直接同步出海）"
+  },
+  {
+    "heroName": "Charlotte",
+    "wikiPath": "/th/wiki/Charlotte",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Charlotte",
+    "rovEnglishName": "Charlotte",
+    "rovChineseName": "夏洛特",
+    "hokHero": "夏洛特",
+    "portingNote": "全球发行版本（王者直接同步出海）"
+  },
+  {
+    "heroName": "Dolia",
+    "wikiPath": "/th/wiki/Dolia",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Dolia",
+    "rovEnglishName": "Dolia",
+    "rovChineseName": "朵莉亚",
+    "hokHero": "朵莉亚",
+    "portingNote": "全球发行版本（王者直接同步出海）"
+  },
+  {
+    "heroName": "Biron",
+    "wikiPath": "/th/wiki/Biron",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Biron",
+    "rovEnglishName": "Biron",
+    "rovChineseName": "拜伦",
+    "hokHero": "狂铁",
+    "portingNote": "全球发行版本（王者直接同步出海）"
+  },
+  {
+    "heroName": "Bolt Baron",
+    "wikiPath": "/th/wiki/Bolt_Baron",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Bolt_Baron",
+    "rovEnglishName": "Bolt Baron",
+    "rovChineseName": "波特男爵（司空震）",
+    "hokHero": "司空震",
+    "portingNote": "全球发行版本（雷电法王出海代号）"
+  },
+  {
+    "heroName": "Billow",
+    "wikiPath": "/th/wiki/Billow",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Billow",
+    "rovEnglishName": "Billow",
+    "rovChineseName": "比罗",
+    "hokHero": "澜",
+    "portingNote": "完全移植 / 全球发行改名"
+  },
+  {
+    "heroName": "Heino",
+    "wikiPath": "/th/wiki/Heino",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Heino",
+    "rovEnglishName": "Heino",
+    "rovChineseName": "海诺",
+    "hokHero": "海诺",
+    "portingNote": "全球发行版本（王者直接同步出海）"
+  },
+  {
+    "heroName": "Goverra",
+    "wikiPath": "/th/wiki/Goverra",
+    "url": "https://arena-of-valor.fandom.com/th/wiki/Goverra",
+    "rovEnglishName": "Goverra",
+    "rovChineseName": "戈维拉",
+    "hokHero": "米莱迪",
+    "portingNote": "完全移植"
+  },
+  {
+    "heroName": "Sun Quan",
+    "wikiPath": "",
+    "url": "",
+    "rovEnglishName": "Sun Quan",
+    "rovChineseName": "孙权",
+    "hokHero": "孙权",
+    "portingNote": "完全移植"
   }
 ]
