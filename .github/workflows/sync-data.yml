@@ -34,3 +34,9 @@ jobs:
           FEISHU_HERO_SHEET_ID: 1FVXHq
           FEISHU_QUALITY_SHEET_ID: XIg8ge
           FEISHU_OBTAIN_SHEET_ID: ZBF8aL
+
+      - name: Validate data
+        run: npm run validate:data
+
+      - name: Build
+        run: npm run build
