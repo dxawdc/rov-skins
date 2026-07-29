@@ -191,6 +191,7 @@ export function cleanDataset(input: { skinRows: RowObject[]; heroRows: RowObject
     const posterRaw = row['皮肤海报'];
     const posterToken = extractImageToken(posterRaw);
     const posterUrl = extractImageUrl(posterRaw);
+    const qualityTagToken = extractImageToken(row['皮肤品质标签']);
 
     return [{
       id,
@@ -204,6 +205,10 @@ export function cleanDataset(input: { skinRows: RowObject[]; heroRows: RowObject
         status: posterToken || posterUrl ? 'failed' : 'missing',
       },
       qualityTag,
+      qualityTagImage: {
+        token: qualityTagToken,
+        status: qualityTagToken ? 'failed' : 'missing',
+      },
       quality,
       releaseDate: release.date,
       releaseYear: release.year,

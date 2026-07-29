@@ -9,6 +9,12 @@ const posterSchema = z.object({
   status: z.enum(['ok', 'missing', 'failed']),
 });
 
+const qualityTagImageSchema = z.object({
+  token: z.string().optional(),
+  local: z.string().optional(),
+  status: z.enum(['ok', 'missing', 'failed']),
+});
+
 const skinSchema = z.object({
   id: z.string().min(1),
   rowNumber: z.number(),
@@ -17,6 +23,7 @@ const skinSchema = z.object({
   skinName: z.string().min(1),
   poster: posterSchema,
   qualityTag: z.string(),
+  qualityTagImage: qualityTagImageSchema,
   quality: z.string().min(1),
   releaseDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable(),
   releaseYear: z.number().nullable(),

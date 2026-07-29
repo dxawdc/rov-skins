@@ -8,6 +8,12 @@ export type Poster = {
   status: PosterStatus;
 };
 
+export type QualityTagImage = {
+  token?: string;
+  local?: string;
+  status: PosterStatus;
+};
+
 export type Skin = {
   id: string;
   rowNumber: number;
@@ -16,6 +22,7 @@ export type Skin = {
   skinName: string;
   poster: Poster;
   qualityTag: string;
+  qualityTagImage: QualityTagImage;
   quality: string;
   releaseDate: string | null;
   releaseYear: number | null;

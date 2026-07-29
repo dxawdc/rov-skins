@@ -49,7 +49,9 @@ export function SkinTable({ skins, qualityTags, onSelectSkin, emptyText = 'æš‚æ—
               <td className="break-words px-3 py-3 font-medium text-slate-900">{skin.skinName}</td>
               <td className="px-3 py-3"><span className="rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-700">{skin.quality}</span></td>
               <td className="px-3 py-3 text-slate-600">
-                {tagImageByName.get(skin.qualityTag) ? (
+                {skin.qualityTagImage?.local ? (
+                  <img alt={skin.qualityTag} className="h-7 max-w-[96px] object-contain" src={skin.qualityTagImage.local} title={skin.qualityTag} />
+                ) : tagImageByName.get(skin.qualityTag) ? (
                   <img alt={skin.qualityTag} className="h-7 max-w-[96px] object-contain" src={tagImageByName.get(skin.qualityTag)} title={skin.qualityTag} />
                 ) : (
                   skin.qualityTag || '-'

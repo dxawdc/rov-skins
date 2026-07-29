@@ -22,9 +22,20 @@ function resolveDownloadUrl(skin: Skin): { url: string; needsAuth: boolean } | n
   return null;
 }
 
-export async function downloadImages(skins: Skin[], options: { token?: string; outputDir?: string } = {}) {
+async function downloadFeishuImage(token: string, absoluteTarget: string, options: { token?: string; width: number; quality: number }) {
+  const response = await fetch(`https://open.feishu.cn/open-apis/drive/v1/medias/${token}/download`, options.token ? { headers: { Authorization: `Bearer ${options.token}` } } : undefined);
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const arrayBuffer = await response.arrayBuffer();
+  const sharp = (await import('sharp')).default;
+  const buffer = await sharp(Buffer.from(arrayBuffer)).resize({ width: options.width, withoutEnlargement: true }).webp({ quality: options.quality }).toBuffer();
+  await writeFile(absoluteTarget, buffer);
+}
+
+export async function downloadImages(skins: Skin[], options: { token?: string; outputDir?: string; qualityTagOutputDir?: string } = {}) {
   const outputDir = options.outputDir ?? path.resolve('public/images/skins');
+  const qualityTagOutputDir = options.qualityTagOutputDir ?? path.resolve('public/images/quality-tags');
   await mkdir(outputDir, { recursive: true });
+  await mkdir(qualityTagOutputDir, { recursive: true });
 
   const warnings: string[] = [];
   for (const skin of skins) {
@@ -34,28 +45,44 @@ export async function downloadImages(skins: Skin[], options: { token?: string; o
       skin.poster.local = target;
       skin.poster.thumbnail = target;
       skin.poster.status = 'ok';
-      continue;
+    } else {
+      const download = resolveDownloadUrl(skin);
+      if (!download) {
+        skin.poster.status = skin.poster.token || skin.poster.source ? 'failed' : 'missing';
+      } else {
+        try {
+          const response = await fetch(download.url, download.needsAuth && options.token ? { headers: { Authorization: `Bearer ${options.token}` } } : undefined);
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const arrayBuffer = await response.arrayBuffer();
+          const sharp = (await import('sharp')).default;
+          const buffer = await sharp(Buffer.from(arrayBuffer)).resize({ width: 960, withoutEnlargement: true }).webp({ quality: 82 }).toBuffer();
+          await writeFile(absoluteTarget, buffer);
+          skin.poster.local = target;
+          skin.poster.thumbnail = target;
+          skin.poster.status = 'ok';
+        } catch (error) {
+          skin.poster.status = 'failed';
+          warnings.push(`${skin.id} 海报下载失败：${error instanceof Error ? error.message : String(error)}`);
+        }
+      }
     }
 
-    const download = resolveDownloadUrl(skin);
-    if (!download) {
-      skin.poster.status = skin.poster.token || skin.poster.source ? 'failed' : 'missing';
-      continue;
-    }
-
-    try {
-      const response = await fetch(download.url, download.needsAuth && options.token ? { headers: { Authorization: `Bearer ${options.token}` } } : undefined);
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const arrayBuffer = await response.arrayBuffer();
-      const sharp = (await import('sharp')).default;
-      const buffer = await sharp(Buffer.from(arrayBuffer)).resize({ width: 960, withoutEnlargement: true }).webp({ quality: 82 }).toBuffer();
-      await writeFile(absoluteTarget, buffer);
-      skin.poster.local = target;
-      skin.poster.thumbnail = target;
-      skin.poster.status = 'ok';
-    } catch (error) {
-      skin.poster.status = 'failed';
-      warnings.push(`${skin.id} 海报下载失败：${error instanceof Error ? error.message : String(error)}`);
+    if (skin.qualityTagImage.token) {
+      const tagTarget = `/images/quality-tags/${skin.qualityTagImage.token}.webp`;
+      const absoluteTagTarget = path.join(qualityTagOutputDir, `${skin.qualityTagImage.token}.webp`);
+      if (await exists(absoluteTagTarget)) {
+        skin.qualityTagImage.local = tagTarget;
+        skin.qualityTagImage.status = 'ok';
+      } else {
+        try {
+          await downloadFeishuImage(skin.qualityTagImage.token, absoluteTagTarget, { token: options.token, width: 160, quality: 90 });
+          skin.qualityTagImage.local = tagTarget;
+          skin.qualityTagImage.status = 'ok';
+        } catch (error) {
+          skin.qualityTagImage.status = 'failed';
+          warnings.push(`${skin.id} 品质标签图片下载失败：${error instanceof Error ? error.message : String(error)}`);
+        }
+      }
     }
   }
 
@@ -84,7 +111,8 @@ async function main() {
   const warnings = await downloadImages(skins, { token });
   await writeFile(dataPath, `${JSON.stringify(skins, null, 2)}\n`, 'utf8');
   const ok = skins.filter((skin) => skin.poster.status === 'ok').length;
-  console.log(`补图完成：${ok}/${skins.length} 张海报可用，warnings=${warnings.length}`);
+  const qualityOk = skins.filter((skin) => skin.qualityTagImage.status === 'ok').length;
+  console.log(`补图完成：${ok}/${skins.length} 张海报可用，${qualityOk}/${skins.length} 张品质标签图可用，warnings=${warnings.length}`);
   if (warnings.length) console.log(warnings.slice(0, 20).join('\n'));
 }
 

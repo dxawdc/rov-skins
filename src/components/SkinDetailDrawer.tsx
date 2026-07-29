@@ -19,7 +19,7 @@ function Field({ label, value }: { label: string; value?: string | number | null
 
 export function SkinDetailDrawer({ skin, qualityTags, onClose }: SkinDetailDrawerProps) {
   if (!skin) return null;
-  const qualityTagImage = qualityTags.find((asset) => asset.tag === skin.qualityTag)?.local;
+  const qualityTagImage = skin.qualityTagImage?.local ?? qualityTags.find((asset) => asset.tag === skin.qualityTag)?.local;
 
   return (
     <div className="fixed inset-0 z-50 bg-slate-950/40 backdrop-blur-sm" onClick={onClose} role="presentation">

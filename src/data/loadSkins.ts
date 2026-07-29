@@ -25,6 +25,7 @@ export async function loadSkinDataset(): Promise<SkinDataset> {
   for (const skin of skins) {
     if (skin.poster.local) skin.poster.local = withBase(skin.poster.local);
     if (skin.poster.thumbnail) skin.poster.thumbnail = withBase(skin.poster.thumbnail);
+    if (skin.qualityTagImage?.local) skin.qualityTagImage.local = withBase(skin.qualityTagImage.local);
   }
   for (const tag of qualityTags) {
     if (tag.local) tag.local = withBase(tag.local);
