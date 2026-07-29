@@ -66,8 +66,8 @@ export function SkinDetailDrawer({ skin, qualityTags, onClose }: SkinDetailDrawe
           <Field label="本地化元素" value={skin.localizationElement || skin.localizationElementText} />
           <Field label="本地化元素解读" value={skin.localizationInterpretation} />
           <Field label="小王移植" value={skin.isHonorOfKingsPort === null || skin.isHonorOfKingsPort === undefined ? null : skin.isHonorOfKingsPort ? '是' : '否'} />
+          <Field label="小王初始售卖方式" value={skin.hokOriginalSaleMethod} />
           <Field label="IP / 名人联动" value={skin.ipName || (skin.hasIpCollab ? '是' : '')} />
-          <Field label="备注" value={skin.note} />
           <Field label="飞书原始行号" value={skin.rowNumber} />
         </div>
       </aside>

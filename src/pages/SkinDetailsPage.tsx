@@ -12,6 +12,7 @@ type SkinDetailsPageProps = {
 type DetailFilters = {
   query: string;
   hero: string;
+  role: string;
   quality: string;
   qualityTag: string;
   obtainMethod: string;
@@ -23,6 +24,7 @@ const pageSize = 50;
 const initialFilters: DetailFilters = {
   query: '',
   hero: 'all',
+  role: 'all',
   quality: 'all',
   qualityTag: 'all',
   obtainMethod: 'all',
@@ -36,6 +38,7 @@ export function SkinDetailsPage({ skins, qualityTags, onSelectSkin }: SkinDetail
   const options = useMemo(
     () => ({
       heroes: uniqueOptions(skins.map((skin) => skin.heroName)),
+      roles: uniqueOptions(skins.flatMap((skin) => skin.heroRoles)),
       qualities: uniqueOptions(skins.map((skin) => skin.quality)),
       qualityTags: uniqueOptions(skins.map((skin) => skin.qualityTag)),
       obtainMethods: uniqueOptions(skins.map((skin) => skin.obtainMethod)),
@@ -50,6 +53,7 @@ export function SkinDetailsPage({ skins, qualityTags, onSelectSkin }: SkinDetail
       .filter((skin) => {
         if (query && !skin.searchText.toLowerCase().includes(query)) return false;
         if (filters.hero !== 'all' && skin.heroName !== filters.hero) return false;
+        if (filters.role !== 'all' && !skin.heroRoles.includes(filters.role)) return false;
         if (filters.quality !== 'all' && skin.quality !== filters.quality) return false;
         if (filters.qualityTag !== 'all' && skin.qualityTag !== filters.qualityTag) return false;
         if (filters.obtainMethod !== 'all' && skin.obtainMethod !== filters.obtainMethod) return false;
@@ -81,6 +85,10 @@ export function SkinDetailsPage({ skins, qualityTags, onSelectSkin }: SkinDetail
           <select className="h-10 min-w-0 rounded-lg border border-slate-200 px-3 text-sm" onChange={(event) => updateFilters({ hero: event.target.value })} value={filters.hero}>
             <option value="all">全部英雄</option>
             {options.heroes.map((hero) => <option key={hero}>{hero}</option>)}
+          </select>
+          <select className="h-10 min-w-0 rounded-lg border border-slate-200 px-3 text-sm" onChange={(event) => updateFilters({ role: event.target.value })} value={filters.role}>
+            <option value="all">全部职业</option>
+            {options.roles.map((role) => <option key={role}>{role}</option>)}
           </select>
           <select className="h-10 min-w-0 rounded-lg border border-slate-200 px-3 text-sm" onChange={(event) => updateFilters({ quality: event.target.value })} value={filters.quality}>
             <option value="all">全部品质</option>

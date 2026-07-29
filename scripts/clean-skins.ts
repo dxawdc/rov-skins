@@ -46,6 +46,11 @@ function isUnresolvedFormula(value: string): boolean {
   return /^=?\s*[A-Z]+\(/i.test(value.trim());
 }
 
+function isSelfCellReference(value: string, rowNumber: number): boolean {
+  const match = /^[A-Z]{1,3}(\d{1,5})$/.exec(value.trim());
+  return !!match && Number(match[1]) === rowNumber;
+}
+
 function buildHeroRoleMap(heroDetailRows: RowObject[], roleTranslationRows: RowObject[]): Map<string, string[]> {
   const thaiToRole = new Map<string, string>();
   for (const row of roleTranslationRows) {
@@ -183,9 +188,11 @@ export function cleanDataset(input: { skinRows: RowObject[]; heroRows: RowObject
     const quality = normalizeQuality(text(row['品质']));
     const qualityTag = resolveQualityTag(quality, text(row['皮肤品质标签']));
     const obtainMethod = normalizeObtainMethod(text(row['获取方式']));
-    const obtainMethodText = text(row['获取途径（转文本）']) || obtainMethod;
+    const obtainMethodTextRaw = text(row['获取途径（转文本）']);
+    const obtainMethodText = (isSelfCellReference(obtainMethodTextRaw, rowNumber) ? '' : obtainMethodTextRaw) || obtainMethod;
     const localizationElement = text(row['本地化元素']);
-    const localizationElementText = text(row['本地化元素（转文本）']);
+    const localizationElementTextRaw = text(row['本地化元素（转文本）']);
+    const localizationElementText = isSelfCellReference(localizationElementTextRaw, rowNumber) ? '' : localizationElementTextRaw;
     const ipName = text(row['IP/名人名称']);
 
     const posterRaw = row['皮肤海报'];
@@ -219,7 +226,7 @@ export function cleanDataset(input: { skinRows: RowObject[]; heroRows: RowObject
       localizationElementText,
       localizationInterpretation: text(row['本地化元素解读']),
       isHonorOfKingsPort: parseBoolean(text(row['小王移植'])),
-      hokOriginalSaleMethod: text(row['小王一开始怎么卖的']),
+      hokOriginalSaleMethod: text(row['小王初始售卖方式']),
       hasIpCollab: parseBoolean(text(row['IP/名人联动'])),
       ipName,
       note: [text(row['备注']), text(row['备注.1']), text(row['备注.2'])].filter(Boolean).join(' / '),

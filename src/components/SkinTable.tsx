@@ -8,20 +8,12 @@ type SkinTableProps = {
   emptyText?: string;
 };
 
-function isPermanentSkin(skin: Skin) {
-  return /直售|商城|碎片/.test(skin.obtainMethod) && !/限时|抽奖|祈愿|夺宝|战令/.test(skin.obtainMethod);
-}
-
-function inferLaunchType(skin: Skin) {
-  return skin.releaseDate ? '首发' : '未知';
-}
-
 export function SkinTable({ skins, qualityTags, onSelectSkin, emptyText = '暂无皮肤记录' }: SkinTableProps) {
   const tagImageByName = new Map(qualityTags.map((asset) => [asset.tag, asset.local]));
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full min-w-[1254px] table-fixed border-collapse text-sm">
+      <table className="w-full min-w-[1094px] table-fixed border-collapse text-sm">
         <thead className="bg-slate-50 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
           <tr>
             <th className="w-20 px-3 py-3">海报</th>
@@ -32,8 +24,6 @@ export function SkinTable({ skins, qualityTags, onSelectSkin, emptyText = '暂�
             <th className="w-[120px] px-3 py-3">归属英雄</th>
             <th className="w-[110px] px-3 py-3">职业</th>
             <th className="w-[220px] px-3 py-3">获取方式</th>
-            <th className="w-20 px-3 py-3">类型</th>
-            <th className="w-20 px-3 py-3">常驻</th>
             <th className="w-20 px-3 py-3">详情</th>
           </tr>
         </thead>
@@ -60,14 +50,12 @@ export function SkinTable({ skins, qualityTags, onSelectSkin, emptyText = '暂�
               <td className="px-3 py-3 text-slate-900">{skin.heroName}</td>
               <td className="px-3 py-3 text-slate-600">{skin.heroRoles.join('/') || '-'}</td>
               <td className="break-words px-3 py-3 text-slate-600">{skin.obtainMethod}</td>
-              <td className="px-3 py-3 text-slate-600">{inferLaunchType(skin)}</td>
-              <td className="px-3 py-3 text-slate-600">{isPermanentSkin(skin) ? '是' : '否'}</td>
               <td className="px-3 py-3"><button className="text-blue-600 hover:underline" onClick={() => onSelectSkin(skin)} type="button">查看</button></td>
             </tr>
           ))}
           {skins.length === 0 && (
             <tr>
-              <td className="px-4 py-10 text-center text-slate-500" colSpan={11}>{emptyText}</td>
+              <td className="px-4 py-10 text-center text-slate-500" colSpan={9}>{emptyText}</td>
             </tr>
           )}
         </tbody>
