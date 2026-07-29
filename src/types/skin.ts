@@ -29,6 +29,8 @@ export type Skin = {
   releaseMonth: string | null;
   obtainMethod: string;
   obtainMethodText?: string;
+  freeVoucher?: number | null;
+  freeVoucherUsd?: number | null;
   localizationElement?: string;
   localizationElementText?: string;
   localizationInterpretation?: string;

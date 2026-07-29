@@ -30,6 +30,8 @@ const skinSchema = z.object({
   releaseMonth: z.string().regex(/^\d{4}-\d{2}$/).nullable(),
   obtainMethod: z.string().min(1),
   obtainMethodText: z.string().optional(),
+  freeVoucher: z.number().nullable().optional(),
+  freeVoucherUsd: z.number().nullable().optional(),
   localizationElement: z.string().optional(),
   localizationElementText: z.string().optional(),
   localizationInterpretation: z.string().optional(),

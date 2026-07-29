@@ -63,6 +63,12 @@ export function SkinDetailDrawer({ skin, qualityTags, onClose }: SkinDetailDrawe
           </div>
           <Field label="首次上线日期" value={formatDisplayDate(skin.releaseDate)} />
           <Field label="获取方式" value={skin.obtainMethod} />
+          {skin.obtainMethod === '免费获取' && (
+            <>
+              <Field label="免费皮对应点券（原价）" value={skin.freeVoucher != null ? `${skin.freeVoucher} 点券` : null} />
+              <Field label="折合美元" value={skin.freeVoucherUsd != null ? `$${skin.freeVoucherUsd}` : null} />
+            </>
+          )}
           <Field label="本地化元素" value={skin.localizationElement || skin.localizationElementText} />
           <Field label="本地化元素解读" value={skin.localizationInterpretation} />
           <Field label="小王移植" value={skin.isHonorOfKingsPort === null || skin.isHonorOfKingsPort === undefined ? null : skin.isHonorOfKingsPort ? '是' : '否'} />

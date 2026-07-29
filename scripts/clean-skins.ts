@@ -77,6 +77,14 @@ function parseBoolean(value: string): boolean | null {
   return null;
 }
 
+function parseNumber(value: unknown): number | null {
+  if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+  const str = text(value);
+  if (!str) return null;
+  const num = Number(str.replace(/[,，\s]/g, ''));
+  return Number.isFinite(num) ? num : null;
+}
+
 function parseDate(value: unknown): { date: string | null; year: number | null; month: string | null } {
   if (typeof value === 'number' && value > 20000) {
     const base = dayjs('1899-12-30').add(value, 'day');
@@ -222,6 +230,8 @@ export function cleanDataset(input: { skinRows: RowObject[]; heroRows: RowObject
       releaseMonth: release.month,
       obtainMethod,
       obtainMethodText,
+      freeVoucher: parseNumber(row['免费皮对应点券（原价）']),
+      freeVoucherUsd: parseNumber(row['折合美元']),
       localizationElement,
       localizationElementText,
       localizationInterpretation: text(row['本地化元素解读']),
