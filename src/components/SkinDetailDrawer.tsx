@@ -58,7 +58,7 @@ export function SkinDetailDrawer({ skin, qualityTags, onClose }: SkinDetailDrawe
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
             <div className="text-xs font-semibold uppercase tracking-wide text-slate-400">品质标签</div>
             <div className="mt-2">
-              {qualityTagImage ? <img alt={skin.qualityTag} className="h-10 max-w-[140px] object-contain" src={qualityTagImage} title={skin.qualityTag} /> : <span className="text-sm text-slate-900">{skin.qualityTag || '—'}</span>}
+              {qualityTagImage ? <img alt={skin.qualityTag} className="h-10 max-w-[140px] object-contain" src={qualityTagImage} /> : <span className="text-sm text-slate-900">{skin.qualityTag || '—'}</span>}
             </div>
           </div>
           <Field label="首次上线日期" value={formatDisplayDate(skin.releaseDate)} />
