@@ -341,6 +341,18 @@ export function AnalyticsPage({ skins }: AnalyticsPageProps) {
           })}
         </div>
         <ReactECharts className="min-w-[820px]" notMerge option={lineCompareOption} style={{ height: 430 }} />
+        <div className="mt-3 flex flex-wrap gap-2">
+          {(['month', 'quarter', 'halfYear'] as PeriodGranularity[]).map((value) => (
+            <button
+              className={`rounded-full border px-3 py-1 text-sm ${periodGranularity === value ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}`}
+              key={value}
+              onClick={() => setPeriodGranularity(value)}
+              type="button"
+            >
+              {periodNames[value]}
+            </button>
+          ))}
+        </div>
       </ChartCard>
     </div>
   );
