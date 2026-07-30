@@ -10,6 +10,7 @@ type AnalyticsPageProps = {
 
 type ObtainGroup = '全部' | '免费' | '赛季' | '战令' | '付费';
 type MetricKey = 'count' | 'voucher' | 'usd';
+type PeriodGranularity = 'month' | 'quarter' | 'halfYear';
 
 const qualityColors = ['#2563eb', '#16a34a', '#f97316', '#9333ea', '#dc2626', '#0891b2', '#ca8a04', '#475569', '#db2777'];
 const months = Array.from({ length: 12 }, (_, index) => String(index + 1).padStart(2, '0'));
@@ -19,6 +20,18 @@ const metricLabels: Record<MetricKey, { short: string; long: string; unit: strin
   count: { short: '皮肤数', long: '皮肤数', unit: '款' },
   voucher: { short: '点券', long: '免费皮对应点券（原价）', unit: '点券' },
   usd: { short: '美元', long: '折合美元', unit: '$' },
+};
+
+const periodLabels: Record<PeriodGranularity, string[]> = {
+  month: months.map((month) => `${Number(month)}月`),
+  quarter: ['Q1', 'Q2', 'Q3', 'Q4'],
+  halfYear: ['上半年', '下半年'],
+};
+
+const periodNames: Record<PeriodGranularity, string> = {
+  month: '按月',
+  quarter: '按季度',
+  halfYear: '按半年',
 };
 
 function uniqueSkinKey(skin: Skin) {
@@ -47,6 +60,14 @@ function getObtainGroup(method: string): Exclude<ObtainGroup, '全部'> {
   if (/赛季/.test(method)) return '赛季';
   if (/战令/.test(method)) return '战令';
   return '付费';
+}
+
+function getPeriodLabel(releaseMonth: string | null, granularity: PeriodGranularity): string | null {
+  const month = Number(releaseMonth?.slice(5, 7));
+  if (!month) return null;
+  if (granularity === 'quarter') return `Q${Math.ceil(month / 3)}`;
+  if (granularity === 'halfYear') return month <= 6 ? '上半年' : '下半年';
+  return `${month}月`;
 }
 
 function StatCard({ label, value, note }: { label: string; value: number | string; note: string }) {
@@ -124,6 +145,7 @@ export function AnalyticsPage({ skins }: AnalyticsPageProps) {
   const [qualityFilter, setQualityFilter] = useState('全部');
   const [obtainFilter, setObtainFilter] = useState<ObtainGroup>('全部');
   const [metric, setMetric] = useState<MetricKey>('count');
+  const [periodGranularity, setPeriodGranularity] = useState<PeriodGranularity>('month');
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
   const [compareYears, setCompareYears] = useState<string[]>([]);
   const [showLabels, setShowLabels] = useState(true);
@@ -181,23 +203,26 @@ export function AnalyticsPage({ skins }: AnalyticsPageProps) {
     return buildStackedOption(years, activeQualities, matrix, showLabels, visibleQualities, qualityLegendSelection, true, activeMetric);
   }, [activeMetric, activeQualities, filteredSkins, qualityLegendSelection, showLabels, visibleQualities, years]);
 
-  const monthStack = useMemo(() => {
+  const periodStack = useMemo(() => {
     const year = selectedYear ?? years[years.length - 1] ?? '';
-    const matrix: Record<string, Record<string, number>> = {};
-    for (const month of months) matrix[month] = {};
+    const categories = periodLabels[periodGranularity];
+    const matrix: Record<string, Record<string, number>> = Object.fromEntries(categories.map((category) => [category, {}]));
     for (const skin of filteredSkins) {
       if (String(skin.releaseYear) !== year) continue;
-      const month = skin.releaseMonth?.slice(5, 7);
-      if (!month) continue;
-      matrix[month][skin.quality] = (matrix[month][skin.quality] ?? 0) + getMetricValue(skin, activeMetric);
+      const period = getPeriodLabel(skin.releaseMonth, periodGranularity);
+      if (!period) continue;
+      matrix[period][skin.quality] = (matrix[period][skin.quality] ?? 0) + getMetricValue(skin, activeMetric);
     }
-    return { year, option: buildStackedOption(months.map((month) => `${Number(month)}月`), activeQualities, Object.fromEntries(months.map((month) => [`${Number(month)}月`, matrix[month]])), showLabels, visibleQualities, qualityLegendSelection, false, activeMetric) };
-  }, [activeMetric, activeQualities, filteredSkins, qualityLegendSelection, selectedYear, showLabels, visibleQualities, years]);
+    return { year, option: buildStackedOption(categories, activeQualities, matrix, showLabels, visibleQualities, qualityLegendSelection, false, activeMetric) };
+  }, [activeMetric, activeQualities, filteredSkins, periodGranularity, qualityLegendSelection, selectedYear, showLabels, visibleQualities, years]);
 
   const lineCompareOption = useMemo<EChartsOption>(() => {
     const selected = compareYears.length > 0 ? compareYears : years.slice(-4);
+    const categories = periodLabels[periodGranularity];
     const series = selected.map((year) => {
-      const data = months.map((month) => sum(filteredSkins.filter((skin) => String(skin.releaseYear) === year && skin.releaseMonth?.slice(5, 7) === month).map((skin) => getMetricValue(skin, activeMetric))));
+      const data = categories.map((category) => sum(filteredSkins
+        .filter((skin) => String(skin.releaseYear) === year && getPeriodLabel(skin.releaseMonth, periodGranularity) === category)
+        .map((skin) => getMetricValue(skin, activeMetric))));
       return {
         name: `${year}（合计 ${sum(data).toLocaleString()}${metricLabels[activeMetric].unit}）`,
         type: 'line' as const,
@@ -213,11 +238,11 @@ export function AnalyticsPage({ skins }: AnalyticsPageProps) {
       legend: { top: 0, type: 'scroll' },
       toolbox,
       grid: { left: 42, right: 28, top: 64, bottom: 42 },
-      xAxis: { type: 'category', data: months.map((month) => `${Number(month)}月`) },
+      xAxis: { type: 'category', data: categories },
       yAxis: { type: 'value', name: metricLabels[activeMetric].long },
       series,
     };
-  }, [activeMetric, compareYears, filteredSkins, showLabels, years]);
+  }, [activeMetric, compareYears, filteredSkins, periodGranularity, showLabels, years]);
 
   function toggleCompareYear(year: string) {
     setCompareYears((current) => {
@@ -273,7 +298,7 @@ export function AnalyticsPage({ skins }: AnalyticsPageProps) {
         <ReactECharts className="min-w-[720px]" notMerge onEvents={{ legendselectchanged: handleLegendSelection }} option={qualityPieOption} style={{ height: 380 }} />
       </ChartCard>
 
-      <ChartCard title={`图1：年度${metricLabels[activeMetric].long}按品质堆叠图`} subtitle={`柱内可显示分品质标签值，虚线为年度汇总${metricLabels[activeMetric].short}；点击图例可隐藏品质，点击某个年度柱展开月度图`}>
+      <ChartCard title={`图1：年度${metricLabels[activeMetric].long}按品质堆叠图`} subtitle={`柱内可显示分品质标签值，虚线为年度汇总${metricLabels[activeMetric].short}；点击图例可隐藏品质，点击某个年度柱展开周期图`}>
         <ReactECharts
           onEvents={{ click: (params: { name?: string }) => params.name && setSelectedYear(String(params.name)), legendselectchanged: handleLegendSelection }}
           option={yearStack}
@@ -283,11 +308,23 @@ export function AnalyticsPage({ skins }: AnalyticsPageProps) {
         />
       </ChartCard>
 
-      <ChartCard title={`图2：${monthStack.year || '年度'} 月度${metricLabels[activeMetric].long}按品质堆叠图`} subtitle={`柱内可显示分品质标签值，虚线为月度汇总${metricLabels[activeMetric].short}；点击图例可隐藏品质`}>
-        <ReactECharts className="min-w-[820px]" notMerge onEvents={{ legendselectchanged: handleLegendSelection }} option={monthStack.option} style={{ height: 420 }} />
+      <ChartCard title={`图2：${periodStack.year || '年度'} ${periodNames[periodGranularity]}${metricLabels[activeMetric].long}按品质堆叠图`} subtitle={`柱内可显示分品质标签值，虚线为周期汇总${metricLabels[activeMetric].short}；点击图例可隐藏品质`}>
+        <div className="mb-3 flex flex-wrap gap-2">
+          {(['month', 'quarter', 'halfYear'] as PeriodGranularity[]).map((value) => (
+            <button
+              className={`rounded-full border px-3 py-1 text-sm ${periodGranularity === value ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}`}
+              key={value}
+              onClick={() => setPeriodGranularity(value)}
+              type="button"
+            >
+              {periodNames[value]}
+            </button>
+          ))}
+        </div>
+        <ReactECharts className="min-w-[820px]" notMerge onEvents={{ legendselectchanged: handleLegendSelection }} option={periodStack.option} style={{ height: 420 }} />
       </ChartCard>
 
-      <ChartCard title={`图3：月份${metricLabels[activeMetric].long}曲线`} subtitle={`图例展示每个年份合计${metricLabels[activeMetric].short}；支持选择多个年份对比，最多保留最近选择的 4 个年份`}>
+      <ChartCard title={`图3：周期${metricLabels[activeMetric].long}曲线`} subtitle={`图例展示每个年份的周期合计${metricLabels[activeMetric].short}；支持选择多个年份对比，最多保留最近选择的 4 个年份`}>
         <div className="mb-3 flex flex-wrap gap-2">
           {years.map((year) => {
             const active = compareYears.includes(year) || (compareYears.length === 0 && years.slice(-4).includes(year));
