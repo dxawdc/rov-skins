@@ -14,7 +14,6 @@ type DetailFilters = {
   hero: string;
   role: string;
   quality: string;
-  qualityTag: string;
   obtainMethod: string;
   year: string;
 };
@@ -26,7 +25,6 @@ const initialFilters: DetailFilters = {
   hero: 'all',
   role: 'all',
   quality: 'all',
-  qualityTag: 'all',
   obtainMethod: 'all',
   year: 'all',
 };
@@ -40,7 +38,6 @@ export function SkinDetailsPage({ skins, qualityTags, onSelectSkin }: SkinDetail
       heroes: uniqueOptions(skins.map((skin) => skin.heroName)),
       roles: uniqueOptions(skins.flatMap((skin) => skin.heroRoles)),
       qualities: uniqueOptions(skins.map((skin) => skin.quality)),
-      qualityTags: uniqueOptions(skins.map((skin) => skin.qualityTag)),
       obtainMethods: uniqueOptions(skins.map((skin) => skin.obtainMethod)),
       years: uniqueOptions(skins.map((skin) => skin.releaseYear)).sort((a, b) => Number(b) - Number(a)),
     }),
@@ -55,7 +52,6 @@ export function SkinDetailsPage({ skins, qualityTags, onSelectSkin }: SkinDetail
         if (filters.hero !== 'all' && skin.heroName !== filters.hero) return false;
         if (filters.role !== 'all' && !skin.heroRoles.includes(filters.role)) return false;
         if (filters.quality !== 'all' && skin.quality !== filters.quality) return false;
-        if (filters.qualityTag !== 'all' && skin.qualityTag !== filters.qualityTag) return false;
         if (filters.obtainMethod !== 'all' && skin.obtainMethod !== filters.obtainMethod) return false;
         if (filters.year !== 'all' && String(skin.releaseYear ?? '') !== filters.year) return false;
         return true;
@@ -93,10 +89,6 @@ export function SkinDetailsPage({ skins, qualityTags, onSelectSkin }: SkinDetail
           <select className="h-10 min-w-0 rounded-lg border border-slate-200 px-3 text-sm" onChange={(event) => updateFilters({ quality: event.target.value })} value={filters.quality}>
             <option value="all">全部品质</option>
             {options.qualities.map((quality) => <option key={quality}>{quality}</option>)}
-          </select>
-          <select className="h-10 min-w-0 rounded-lg border border-slate-200 px-3 text-sm" onChange={(event) => updateFilters({ qualityTag: event.target.value })} value={filters.qualityTag}>
-            <option value="all">全部皮肤标签</option>
-            {options.qualityTags.map((tag) => <option key={tag}>{tag}</option>)}
           </select>
           <select className="h-10 min-w-0 rounded-lg border border-slate-200 px-3 text-sm" onChange={(event) => updateFilters({ obtainMethod: event.target.value })} value={filters.obtainMethod}>
             <option value="all">全部获取方式</option>
