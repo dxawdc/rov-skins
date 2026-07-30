@@ -299,6 +299,18 @@ export function AnalyticsPage({ skins }: AnalyticsPageProps) {
       </ChartCard>
 
       <ChartCard title={`图1：年度${metricLabels[activeMetric].long}按品质堆叠图`} subtitle={`柱内可显示分品质标签值，虚线为年度汇总${metricLabels[activeMetric].short}；点击图例可隐藏品质，点击某个年度柱展开周期图`}>
+        <div className="mb-3 flex flex-wrap gap-2">
+          {(['month', 'quarter', 'halfYear'] as PeriodGranularity[]).map((value) => (
+            <button
+              className={`rounded-full border px-3 py-1 text-sm ${periodGranularity === value ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}`}
+              key={value}
+              onClick={() => setPeriodGranularity(value)}
+              type="button"
+            >
+              {periodNames[value]}
+            </button>
+          ))}
+        </div>
         <ReactECharts
           onEvents={{ click: (params: { name?: string }) => params.name && setSelectedYear(String(params.name)), legendselectchanged: handleLegendSelection }}
           option={yearStack}
