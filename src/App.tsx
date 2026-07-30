@@ -14,10 +14,13 @@ const navItems: Array<{ key: Tab; label: string }> = [
   { key: 'analytics', label: '📊 统计分析' },
 ];
 
+const dataSourceUrl = 'https://moonton.feishu.cn/wiki/O7GZw2GOzi3FAskd36ocojvhnac?sheet=0LLtTx';
+
 export default function App() {
   const [dataset, setDataset] = useState<SkinDataset>({ skins: [], heroes: [], qualityTags: [], meta: null });
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState<Tab>('details');
+  const [showDataSourceConfirm, setShowDataSourceConfirm] = useState(false);
   const [selectedSkin, setSelectedSkin] = useState<Skin | null>(null);
 
   useEffect(() => {
@@ -61,6 +64,13 @@ export default function App() {
                 {item.label}
               </button>
             ))}
+            <button
+              className="w-full rounded-xl px-3 py-2.5 text-left text-sm text-slate-700 transition hover:bg-slate-100"
+              onClick={() => setShowDataSourceConfirm(true)}
+              type="button"
+            >
+              🔗 数据源
+            </button>
           </nav>
 
           <div className="mt-8 rounded-2xl bg-slate-50 p-4">
@@ -87,6 +97,18 @@ export default function App() {
       </div>
 
       <SkinDetailDrawer onClose={() => setSelectedSkin(null)} qualityTags={dataset.qualityTags} skin={selectedSkin} />
+      {showDataSourceConfirm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/40 p-4 backdrop-blur-sm" onClick={() => setShowDataSourceConfirm(false)} role="presentation">
+          <section aria-modal="true" className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl" onClick={(event) => event.stopPropagation()} role="dialog">
+            <h2 className="text-lg font-bold text-slate-950">跳转到飞书数据源？</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-600">即将打开 ROV 皮肤数据源表格。你需要拥有该飞书文档的访问权限。</p>
+            <div className="mt-6 flex justify-end gap-3">
+              <button className="rounded-lg border border-slate-200 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50" onClick={() => setShowDataSourceConfirm(false)} type="button">取消</button>
+              <button className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700" onClick={() => { window.open(dataSourceUrl, '_blank', 'noopener,noreferrer'); setShowDataSourceConfirm(false); }} type="button">确认跳转</button>
+            </div>
+          </section>
+        </div>
+      )}
     </div>
   );
 }
