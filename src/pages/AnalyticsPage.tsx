@@ -11,6 +11,7 @@ type AnalyticsPageProps = {
 type ObtainGroup = '全部' | '免费' | '赛季' | '战令' | '付费';
 type MetricKey = 'count' | 'voucher' | 'usd';
 type PeriodGranularity = 'month' | 'quarter' | 'halfYear';
+type Chart1Granularity = 'year' | PeriodGranularity;
 
 const qualityColors = ['#2563eb', '#16a34a', '#f97316', '#9333ea', '#dc2626', '#0891b2', '#ca8a04', '#475569', '#db2777'];
 const months = Array.from({ length: 12 }, (_, index) => String(index + 1).padStart(2, '0'));
@@ -68,6 +69,17 @@ function getPeriodLabel(releaseMonth: string | null, granularity: PeriodGranular
   if (granularity === 'quarter') return `Q${Math.ceil(month / 3)}`;
   if (granularity === 'halfYear') return month <= 6 ? '上半年' : '下半年';
   return `${month}月`;
+}
+
+function getCrossYearPeriodLabel(releaseYear: number | null, releaseMonth: string | null, granularity: PeriodGranularity): string | null {
+  if (!releaseYear) return null;
+  const period = getPeriodLabel(releaseMonth, granularity);
+  return period ? `${releaseYear}年${period}` : null;
+}
+
+function getYearFromCrossYearPeriodLabel(label: string): string | null {
+  const match = /^(\d{4})年/.exec(label);
+  return match?.[1] ?? null;
 }
 
 function StatCard({ label, value, note }: { label: string; value: number | string; note: string }) {
@@ -145,6 +157,8 @@ export function AnalyticsPage({ skins }: AnalyticsPageProps) {
   const [qualityFilter, setQualityFilter] = useState('全部');
   const [obtainFilter, setObtainFilter] = useState<ObtainGroup>('全部');
   const [metric, setMetric] = useState<MetricKey>('count');
+  const [chart1Granularity, setChart1Granularity] = useState<Chart1Granularity>('year');
+  const [chart1Period, setChart1Period] = useState<string | null>(null);
   const [periodGranularity, setPeriodGranularity] = useState<PeriodGranularity>('month');
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
   const [compareYears, setCompareYears] = useState<string[]>([]);
@@ -194,14 +208,14 @@ export function AnalyticsPage({ skins }: AnalyticsPageProps) {
   }, [activeMetric, filteredSkins, qualityLegendSelection, showLabels, visibleMetricTotal, visibleQualities, visibleSkins.length]);
 
   const yearStack = useMemo(() => {
-    const matrix: Record<string, Record<string, number>> = {};
+    const matrix: Record<string, Record<string, number>> = Object.fromEntries(years.map((year) => [year, {}]));
     for (const skin of filteredSkins) {
+      if (chart1Granularity !== 'year' && getPeriodLabel(skin.releaseMonth, chart1Granularity) !== chart1Period) continue;
       const year = String(skin.releaseYear);
-      matrix[year] ??= {};
       matrix[year][skin.quality] = (matrix[year][skin.quality] ?? 0) + getMetricValue(skin, activeMetric);
     }
-    return buildStackedOption(years, activeQualities, matrix, showLabels, visibleQualities, qualityLegendSelection, true, activeMetric);
-  }, [activeMetric, activeQualities, filteredSkins, qualityLegendSelection, showLabels, visibleQualities, years]);
+    return buildStackedOption(years, activeQualities, matrix, showLabels, visibleQualities, qualityLegendSelection, false, activeMetric);
+  }, [activeMetric, activeQualities, chart1Granularity, chart1Period, filteredSkins, qualityLegendSelection, showLabels, visibleQualities, years]);
 
   const periodStack = useMemo(() => {
     const year = selectedYear ?? years[years.length - 1] ?? '';
@@ -298,26 +312,34 @@ export function AnalyticsPage({ skins }: AnalyticsPageProps) {
         <ReactECharts className="min-w-[720px]" notMerge onEvents={{ legendselectchanged: handleLegendSelection }} option={qualityPieOption} style={{ height: 380 }} />
       </ChartCard>
 
-      <ChartCard title={`图1：年度${metricLabels[activeMetric].long}按品质堆叠图`} subtitle={`柱内可显示分品质标签值，虚线为年度汇总${metricLabels[activeMetric].short}；点击图例可隐藏品质，点击某个年度柱展开周期图`}>
+      <ChartCard title={`图1：年度${metricLabels[activeMetric].long}按品质堆叠图`} subtitle={`横轴始终为年度；可独立按指定周期筛选年度数据，虚线为年度汇总${metricLabels[activeMetric].short}`}>
         <div className="mb-3 flex flex-wrap gap-2">
-          {(['month', 'quarter', 'halfYear'] as PeriodGranularity[]).map((value) => (
+          {(['year', 'month', 'quarter', 'halfYear'] as Chart1Granularity[]).map((value) => (
             <button
-              className={`rounded-full border px-3 py-1 text-sm ${periodGranularity === value ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}`}
+              className={`rounded-full border px-3 py-1 text-sm ${chart1Granularity === value ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}`}
               key={value}
-              onClick={() => setPeriodGranularity(value)}
+              onClick={() => { setChart1Granularity(value); setChart1Period(value === 'year' ? null : periodLabels[value][0]); }}
               type="button"
             >
-              {periodNames[value]}
+              {value === 'year' ? '按年' : periodNames[value]}
             </button>
           ))}
         </div>
-        <ReactECharts
-          onEvents={{ click: (params: { name?: string }) => params.name && setSelectedYear(String(params.name)), legendselectchanged: handleLegendSelection }}
-          option={yearStack}
-          notMerge
-          className="min-w-[820px]"
-          style={{ height: 460 }}
-        />
+        {chart1Granularity !== 'year' && (
+          <div className="mb-3 flex flex-wrap gap-2">
+            {periodLabels[chart1Granularity].map((value) => (
+              <button
+                className={`rounded-full border px-3 py-1 text-sm ${chart1Period === value ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}`}
+                key={value}
+                onClick={() => setChart1Period(value)}
+                type="button"
+              >
+                {value}
+              </button>
+            ))}
+          </div>
+        )}
+        <ReactECharts onEvents={{ legendselectchanged: handleLegendSelection }} option={yearStack} notMerge className="min-w-[820px]" style={{ height: 460 }} />
       </ChartCard>
 
       <ChartCard title={`图2：${periodStack.year || '年度'} ${periodNames[periodGranularity]}${metricLabels[activeMetric].long}按品质堆叠图`} subtitle={`柱内可显示分品质标签值，虚线为周期汇总${metricLabels[activeMetric].short}；点击图例可隐藏品质`}>
