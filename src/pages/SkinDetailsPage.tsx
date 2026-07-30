@@ -15,6 +15,9 @@ type DetailFilters = {
   role: string;
   quality: string;
   obtainMethod: string;
+  localization: string;
+  hokPort: string;
+  ipCollab: string;
   year: string;
 };
 
@@ -26,8 +29,21 @@ const initialFilters: DetailFilters = {
   role: 'all',
   quality: 'all',
   obtainMethod: 'all',
+  localization: 'all',
+  hokPort: 'all',
+  ipCollab: 'all',
   year: 'all',
 };
+
+function localizationValue(skin: Skin) {
+  return skin.localizationElement || skin.localizationElementText || '无';
+}
+
+function booleanValue(value: boolean | null | undefined, hasName = false) {
+  if (value === true || hasName) return '是';
+  if (value === false) return '否';
+  return '未知';
+}
 
 export function SkinDetailsPage({ skins, qualityTags, onSelectSkin }: SkinDetailsPageProps) {
   const [filters, setFilters] = useState(initialFilters);
@@ -39,6 +55,9 @@ export function SkinDetailsPage({ skins, qualityTags, onSelectSkin }: SkinDetail
       roles: uniqueOptions(skins.flatMap((skin) => skin.heroRoles)),
       qualities: uniqueOptions(skins.map((skin) => skin.quality)),
       obtainMethods: uniqueOptions(skins.map((skin) => skin.obtainMethod)),
+      localizations: uniqueOptions(skins.map(localizationValue)),
+      hokPorts: uniqueOptions(skins.map((skin) => booleanValue(skin.isHonorOfKingsPort))),
+      ipCollabs: uniqueOptions(skins.map((skin) => booleanValue(skin.hasIpCollab, Boolean(skin.ipName)))),
       years: uniqueOptions(skins.map((skin) => skin.releaseYear)).sort((a, b) => Number(b) - Number(a)),
     }),
     [skins],
@@ -53,6 +72,9 @@ export function SkinDetailsPage({ skins, qualityTags, onSelectSkin }: SkinDetail
         if (filters.role !== 'all' && !skin.heroRoles.includes(filters.role)) return false;
         if (filters.quality !== 'all' && skin.quality !== filters.quality) return false;
         if (filters.obtainMethod !== 'all' && skin.obtainMethod !== filters.obtainMethod) return false;
+        if (filters.localization !== 'all' && localizationValue(skin) !== filters.localization) return false;
+        if (filters.hokPort !== 'all' && booleanValue(skin.isHonorOfKingsPort) !== filters.hokPort) return false;
+        if (filters.ipCollab !== 'all' && booleanValue(skin.hasIpCollab, Boolean(skin.ipName)) !== filters.ipCollab) return false;
         if (filters.year !== 'all' && String(skin.releaseYear ?? '') !== filters.year) return false;
         return true;
       })
@@ -93,6 +115,18 @@ export function SkinDetailsPage({ skins, qualityTags, onSelectSkin }: SkinDetail
           <select className="h-10 min-w-0 rounded-lg border border-slate-200 px-3 text-sm" onChange={(event) => updateFilters({ obtainMethod: event.target.value })} value={filters.obtainMethod}>
             <option value="all">全部获取方式</option>
             {options.obtainMethods.map((method) => <option key={method}>{method}</option>)}
+          </select>
+          <select className="h-10 min-w-0 rounded-lg border border-slate-200 px-3 text-sm" onChange={(event) => updateFilters({ localization: event.target.value })} value={filters.localization}>
+            <option value="all">全部本地化元素</option>
+            {options.localizations.map((value) => <option key={value}>{value}</option>)}
+          </select>
+          <select className="h-10 min-w-0 rounded-lg border border-slate-200 px-3 text-sm" onChange={(event) => updateFilters({ hokPort: event.target.value })} value={filters.hokPort}>
+            <option value="all">全部小王移植</option>
+            {options.hokPorts.map((value) => <option key={value}>{value}</option>)}
+          </select>
+          <select className="h-10 min-w-0 rounded-lg border border-slate-200 px-3 text-sm" onChange={(event) => updateFilters({ ipCollab: event.target.value })} value={filters.ipCollab}>
+            <option value="all">全部IP/名人联动</option>
+            {options.ipCollabs.map((value) => <option key={value}>{value}</option>)}
           </select>
           <select className="h-10 min-w-0 rounded-lg border border-slate-200 px-3 text-sm" onChange={(event) => updateFilters({ year: event.target.value })} value={filters.year}>
             <option value="all">全部年份</option>
