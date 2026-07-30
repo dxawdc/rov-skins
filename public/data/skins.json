@@ -100132,11 +100132,13 @@
       "local": "/images/skins/arduin-champion-s-testament.webp",
       "thumbnail": "/images/skins/arduin-champion-s-testament.webp"
     },
-    "qualityTag": "APL",
+    "qualityTag": "Heroic",
     "qualityTagImage": {
-      "status": "missing"
+      "token": "IzAsbuTq3odqcrxnasXcuvhvnzd",
+      "status": "ok",
+      "local": "/images/quality-tags/IzAsbuTq3odqcrxnasXcuvhvnzd.webp"
     },
-    "quality": "A",
+    "quality": "S",
     "releaseDate": "2025-07-05",
     "releaseYear": 2025,
     "releaseMonth": "2025-07",
@@ -100152,7 +100154,7 @@
     "hasIpCollab": null,
     "ipName": "",
     "note": "",
-    "searchText": "Arduin Champion's Testament 战士 坦克 APL A 免费获取",
+    "searchText": "Arduin Champion's Testament 战士 坦克 Heroic S 免费获取",
     "raw": {
       "__rowNumber": 971,
       "序号": 970,
@@ -100167,8 +100169,15 @@
         "type": "embed-image",
         "width": 0
       },
-      "皮肤品质标签": "APL",
-      "品质": "A",
+      "皮肤品质标签": {
+        "fileToken": "IzAsbuTq3odqcrxnasXcuvhvnzd",
+        "height": 0,
+        "link": "https://moonton.feishu.cn/space/api/box/stream/download/v2/cover/IzAsbuTq3odqcrxnasXcuvhvnzd?height=1280&width=1280&policy=equal&mount_point=sheet_image&mount_node_token=VSFrsnjtyhMJq0tYsW9c5tVPnMg",
+        "text": "",
+        "type": "embed-image",
+        "width": 0
+      },
+      "品质": "S",
       "免费皮对应点券（原价）": "270",
       "折合美元": 8.4,
       "首次上线日期": 45843,
