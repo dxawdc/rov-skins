@@ -339,7 +339,7 @@ export function AnalyticsPage({ skins }: AnalyticsPageProps) {
             ))}
           </div>
         )}
-        <ReactECharts onEvents={{ legendselectchanged: handleLegendSelection }} option={yearStack} notMerge className="min-w-[820px]" style={{ height: 460 }} />
+        <ReactECharts onEvents={{ click: (params: { name?: string }) => params.name && setSelectedYear(String(params.name)), legendselectchanged: handleLegendSelection }} option={yearStack} notMerge className="min-w-[820px]" style={{ height: 460 }} />
       </ChartCard>
 
       <ChartCard title={`图2：${periodStack.year || '年度'} ${periodNames[periodGranularity]}${metricLabels[activeMetric].long}按品质堆叠图`} subtitle={`柱内可显示分品质标签值，虚线为周期汇总${metricLabels[activeMetric].short}；点击图例可隐藏品质`}>
