@@ -12,6 +12,26 @@ async function exists(filePath: string) {
   }
 }
 
+/**
+ * 上次同步时每个皮肤实际下载的图片 token。飞书替换图片后 token 会变，
+ * 但本地文件名（基于皮肤 id）不变，只靠"文件已存在"判断会永远跳过下载。
+ */
+async function loadPreviousTokens(dataPath: string) {
+  const posters = new Map<string, string>();
+  try {
+    const skins = JSON.parse(await readFile(dataPath, 'utf8')) as Skin[];
+    for (const skin of skins) posters.set(skin.id, skin.poster?.token ?? '');
+  } catch {
+    // 首次同步或文件缺失时没有历史记录，全部按新图处理
+  }
+  return posters;
+}
+
+/** 让图片 URL 随 token 变化，避免浏览器/CDN 继续用同名旧图。 */
+function withVersion(urlPath: string, token?: string) {
+  return token ? `${urlPath}?v=${token.slice(0, 10)}` : urlPath;
+}
+
 function resolveDownloadUrl(skin: Skin): { url: string; needsAuth: boolean } | null {
   if (skin.poster.token) {
     return { url: `https://open.feishu.cn/open-apis/drive/v1/medias/${skin.poster.token}/download`, needsAuth: true };
@@ -31,46 +51,51 @@ async function downloadFeishuImage(token: string, absoluteTarget: string, option
   await writeFile(absoluteTarget, buffer);
 }
 
-export async function downloadImages(skins: Skin[], options: { token?: string; outputDir?: string; qualityTagOutputDir?: string } = {}) {
+export async function downloadImages(skins: Skin[], options: { token?: string; outputDir?: string; qualityTagOutputDir?: string; previousDataPath?: string; force?: boolean } = {}) {
   const outputDir = options.outputDir ?? path.resolve('public/images/skins');
   const qualityTagOutputDir = options.qualityTagOutputDir ?? path.resolve('public/images/quality-tags');
   await mkdir(outputDir, { recursive: true });
   await mkdir(qualityTagOutputDir, { recursive: true });
+  const previousPosterTokens = await loadPreviousTokens(options.previousDataPath ?? path.resolve('public/data/skins.json'));
 
   const warnings: string[] = [];
+  let refreshed = 0;
   for (const skin of skins) {
     const target = `/images/skins/${skin.id}.webp`;
     const absoluteTarget = path.join(outputDir, `${skin.id}.webp`);
-    if (await exists(absoluteTarget)) {
-      skin.poster.local = target;
-      skin.poster.thumbnail = target;
+    const download = resolveDownloadUrl(skin);
+    const tokenChanged = previousPosterTokens.has(skin.id) && previousPosterTokens.get(skin.id) !== (skin.poster.token ?? '');
+    const needsDownload = options.force || tokenChanged || !(await exists(absoluteTarget));
+
+    if (!download) {
+      // 飞书已清空该皮肤海报：不要因为旧文件还在就当作同步成功
+      skin.poster.status = skin.poster.token || skin.poster.source ? 'failed' : 'missing';
+    } else if (!needsDownload) {
+      skin.poster.local = withVersion(target, skin.poster.token);
+      skin.poster.thumbnail = skin.poster.local;
       skin.poster.status = 'ok';
     } else {
-      const download = resolveDownloadUrl(skin);
-      if (!download) {
-        skin.poster.status = skin.poster.token || skin.poster.source ? 'failed' : 'missing';
-      } else {
-        try {
-          const response = await fetch(download.url, download.needsAuth && options.token ? { headers: { Authorization: `Bearer ${options.token}` } } : undefined);
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          const arrayBuffer = await response.arrayBuffer();
-          const sharp = (await import('sharp')).default;
-          const buffer = await sharp(Buffer.from(arrayBuffer)).resize({ width: 960, withoutEnlargement: true }).webp({ quality: 82 }).toBuffer();
-          await writeFile(absoluteTarget, buffer);
-          skin.poster.local = target;
-          skin.poster.thumbnail = target;
-          skin.poster.status = 'ok';
-        } catch (error) {
-          skin.poster.status = 'failed';
-          warnings.push(`${skin.id} 海报下载失败：${error instanceof Error ? error.message : String(error)}`);
-        }
+      try {
+        const response = await fetch(download.url, download.needsAuth && options.token ? { headers: { Authorization: `Bearer ${options.token}` } } : undefined);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const arrayBuffer = await response.arrayBuffer();
+        const sharp = (await import('sharp')).default;
+        const buffer = await sharp(Buffer.from(arrayBuffer)).resize({ width: 960, withoutEnlargement: true }).webp({ quality: 82 }).toBuffer();
+        await writeFile(absoluteTarget, buffer);
+        if (tokenChanged) refreshed += 1;
+        skin.poster.local = withVersion(target, skin.poster.token);
+        skin.poster.thumbnail = skin.poster.local;
+        skin.poster.status = 'ok';
+      } catch (error) {
+        skin.poster.status = 'failed';
+        warnings.push(`${skin.id} 海报下载失败：${error instanceof Error ? error.message : String(error)}`);
       }
     }
 
     if (skin.qualityTagImage.token) {
       const tagTarget = `/images/quality-tags/${skin.qualityTagImage.token}.webp`;
       const absoluteTagTarget = path.join(qualityTagOutputDir, `${skin.qualityTagImage.token}.webp`);
-      if (await exists(absoluteTagTarget)) {
+      if (!options.force && (await exists(absoluteTagTarget))) {
         skin.qualityTagImage.local = tagTarget;
         skin.qualityTagImage.status = 'ok';
       } else {
@@ -86,6 +111,7 @@ export async function downloadImages(skins: Skin[], options: { token?: string; o
     }
   }
 
+  if (refreshed > 0) console.log(`检测到 ${refreshed} 张海报在飞书被替换，已重新下载覆盖。`);
   return warnings;
 }
 
@@ -108,7 +134,8 @@ async function main() {
   const dataPath = path.resolve('public/data/skins.json');
   const skins = JSON.parse(await readFile(dataPath, 'utf8')) as Skin[];
   const token = await getTenantToken();
-  const warnings = await downloadImages(skins, { token });
+  const force = process.argv.includes('--force');
+  const warnings = await downloadImages(skins, { token, force });
   await writeFile(dataPath, `${JSON.stringify(skins, null, 2)}\n`, 'utf8');
   const ok = skins.filter((skin) => skin.poster.status === 'ok').length;
   const qualityOk = skins.filter((skin) => skin.qualityTagImage.status === 'ok').length;
