@@ -3,15 +3,17 @@ import { loadSkinDataset } from './data/loadSkins';
 import { AnalyticsPage } from './pages/AnalyticsPage';
 import { HeroSkinsPage } from './pages/HeroSkinsPage';
 import { SkinDetailsPage } from './pages/SkinDetailsPage';
+import { SyncConsolePage } from './pages/SyncConsolePage';
 import { SkinDetailDrawer } from './components/SkinDetailDrawer';
 import type { Skin, SkinDataset } from './types/skin';
 
-type Tab = 'details' | 'heroSkins' | 'analytics';
+type Tab = 'details' | 'heroSkins' | 'analytics' | 'sync';
 
 const navItems: Array<{ key: Tab; label: string }> = [
   { key: 'details', label: '📋 皮肤明细' },
   { key: 'heroSkins', label: '🎭 英雄皮肤' },
   { key: 'analytics', label: '📊 统计分析' },
+  { key: 'sync', label: '🔄 数据同步' },
 ];
 
 const dataSourceUrl = 'https://moonton.feishu.cn/wiki/O7GZw2GOzi3FAskd36ocojvhnac?sheet=0LLtTx';
@@ -90,8 +92,10 @@ export default function App() {
             <SkinDetailsPage onSelectSkin={setSelectedSkin} qualityTags={dataset.qualityTags} skins={dataset.skins} />
           ) : tab === 'heroSkins' ? (
             <HeroSkinsPage onSelectSkin={setSelectedSkin} qualityTags={dataset.qualityTags} skins={dataset.skins} />
-          ) : (
+          ) : tab === 'analytics' ? (
             <AnalyticsPage skins={dataset.skins} />
+          ) : (
+            <SyncConsolePage />
           )}
         </main>
       </div>

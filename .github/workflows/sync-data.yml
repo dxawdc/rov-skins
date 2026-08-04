@@ -30,8 +30,14 @@ jobs:
         run: npm ci
 
       - name: Sync Feishu data
-        run: npm run sync ${{ inputs.force_images && '-- --force-images' || '' }}
+        run: |
+          if [ "$FORCE_IMAGES" = "true" ]; then
+            npm run sync -- --force-images
+          else
+            npm run sync
+          fi
         env:
+          FORCE_IMAGES: ${{ inputs.force_images }}
           FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
           FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
           FEISHU_SPREADSHEET_TOKEN: VSFrsnjtyhMJq0tYsW9c5tVPnMg
