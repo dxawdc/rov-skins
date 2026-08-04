@@ -42,13 +42,25 @@ function resolveDownloadUrl(skin: Skin): { url: string; needsAuth: boolean } | n
   return null;
 }
 
+/** 写入前先比对内容，避免同一张图每次同步都产生无意义的 git 变更。 */
+async function writeIfChanged(absoluteTarget: string, buffer: Buffer) {
+  try {
+    const current = await readFile(absoluteTarget);
+    if (current.equals(buffer)) return false;
+  } catch {
+    // 本地还没有这张图
+  }
+  await writeFile(absoluteTarget, buffer);
+  return true;
+}
+
 async function downloadFeishuImage(token: string, absoluteTarget: string, options: { token?: string; width: number; quality: number }) {
   const response = await fetch(`https://open.feishu.cn/open-apis/drive/v1/medias/${token}/download`, options.token ? { headers: { Authorization: `Bearer ${options.token}` } } : undefined);
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const arrayBuffer = await response.arrayBuffer();
   const sharp = (await import('sharp')).default;
   const buffer = await sharp(Buffer.from(arrayBuffer)).resize({ width: options.width, withoutEnlargement: true }).webp({ quality: options.quality }).toBuffer();
-  await writeFile(absoluteTarget, buffer);
+  return writeIfChanged(absoluteTarget, buffer);
 }
 
 export async function downloadImages(skins: Skin[], options: { token?: string; outputDir?: string; qualityTagOutputDir?: string; previousDataPath?: string; force?: boolean } = {}) {
@@ -60,6 +72,7 @@ export async function downloadImages(skins: Skin[], options: { token?: string; o
 
   const warnings: string[] = [];
   let refreshed = 0;
+  let refreshedTags = 0;
   for (const skin of skins) {
     const target = `/images/skins/${skin.id}.webp`;
     const absoluteTarget = path.join(outputDir, `${skin.id}.webp`);
@@ -81,8 +94,7 @@ export async function downloadImages(skins: Skin[], options: { token?: string; o
         const arrayBuffer = await response.arrayBuffer();
         const sharp = (await import('sharp')).default;
         const buffer = await sharp(Buffer.from(arrayBuffer)).resize({ width: 960, withoutEnlargement: true }).webp({ quality: 82 }).toBuffer();
-        await writeFile(absoluteTarget, buffer);
-        if (tokenChanged) refreshed += 1;
+        if (await writeIfChanged(absoluteTarget, buffer)) refreshed += 1;
         skin.poster.local = withVersion(target, skin.poster.token);
         skin.poster.thumbnail = skin.poster.local;
         skin.poster.status = 'ok';
@@ -100,7 +112,7 @@ export async function downloadImages(skins: Skin[], options: { token?: string; o
         skin.qualityTagImage.status = 'ok';
       } else {
         try {
-          await downloadFeishuImage(skin.qualityTagImage.token, absoluteTagTarget, { token: options.token, width: 160, quality: 90 });
+          if (await downloadFeishuImage(skin.qualityTagImage.token, absoluteTagTarget, { token: options.token, width: 160, quality: 90 })) refreshedTags += 1;
           skin.qualityTagImage.local = tagTarget;
           skin.qualityTagImage.status = 'ok';
         } catch (error) {
@@ -111,7 +123,7 @@ export async function downloadImages(skins: Skin[], options: { token?: string; o
     }
   }
 
-  if (refreshed > 0) console.log(`检测到 ${refreshed} 张海报在飞书被替换，已重新下载覆盖。`);
+  console.log(`图片更新：海报 ${refreshed} 张，品质标签 ${refreshedTags} 张${options.force ? '（强制校验全部图片内容）' : ''}。`);
   return warnings;
 }
 

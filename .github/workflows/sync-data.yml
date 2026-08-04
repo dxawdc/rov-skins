@@ -2,6 +2,11 @@ name: Sync ROV Skin Data
 
 on:
   workflow_dispatch:
+    inputs:
+      force_images:
+        description: "重新下载并校验全部图片内容（用于飞书替换图片但 token 未变的情况）"
+        type: boolean
+        default: false
   schedule:
     - cron: '10 1 * * *'
 
@@ -25,7 +30,7 @@ jobs:
         run: npm ci
 
       - name: Sync Feishu data
-        run: npm run sync
+        run: npm run sync ${{ inputs.force_images && '-- --force-images' || '' }}
         env:
           FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
           FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}

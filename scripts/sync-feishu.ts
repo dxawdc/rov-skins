@@ -107,7 +107,7 @@ async function main() {
     roleTranslationRows: roleTranslationSheet.rows,
   });
   if (!skipImages) {
-    const imageWarnings = await downloadImages(result.skins, { token });
+    const imageWarnings = await downloadImages(result.skins, { token, force: process.argv.includes('--force-images') });
     result.warnings.push(...imageWarnings);
   }
 
