@@ -1136,19 +1136,19 @@
   {
     "heroName": "Goverra",
     "wikiPath": "/th/wiki/Goverra",
-    "url": "https://arena-of-valor.fandom.com/th/wiki/Goverra",
+    "url": "https://lienquan.garena.vn/hoc-vien/tuong-skin/d/goverra/",
     "rovEnglishName": "Goverra",
     "rovChineseName": "戈维拉",
     "hokHero": "米莱迪",
     "portingNote": "完全移植"
   },
   {
-    "heroName": "Sun Quan",
+    "heroName": "Tamyn",
     "wikiPath": "",
-    "url": "",
-    "rovEnglishName": "Sun Quan",
-    "rovChineseName": "孙权",
-    "hokHero": "孙权",
-    "portingNote": "完全移植"
+    "url": "https://lienquan.garena.vn/hoc-vien/tuong-skin/d/tamyn/",
+    "rovEnglishName": "Tamyn",
+    "rovChineseName": "拓冥",
+    "hokHero": "马超",
+    "portingNote": "部分移植（外观变化，技能部分修改）"
   }
 ]
