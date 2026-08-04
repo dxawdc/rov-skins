@@ -60,6 +60,22 @@ npm run typecheck     # 仅类型检查
 
 首次开发如果没有跑过同步、`public/data/*.json` 里没有真实数据，页面会显示空数据集，不影响页面本身的调试。
 
+## 让同事自助触发同步（数据同步页）
+
+站点内置「🔄 数据同步」页面，同事打开网址、粘贴一次令牌，就能自己把飞书最新数据同步到网站，并看到运行进度，不需要接触 GitHub。
+
+给同事创建令牌的步骤（由仓库管理员操作）：
+
+1. 打开 GitHub → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** → Generate new token。
+2. **Repository access** 选 Only select repositories，只勾选 `rov-skins`。
+3. **Permissions** → Repository permissions → 只把 **Actions** 设为 `Read and write`，其余全部保持 No access。
+4. 设置一个合理的有效期（例如 90 天），生成后复制令牌。
+5. 通过私聊单独发给同事，让其粘贴到「数据同步」页。**不要**把令牌写进代码、文档或聊天群。
+
+关于这个令牌的权限边界：它只能触发和查看本仓库的同步流程，**不能**修改代码，也**读不到** Actions Secrets 里的飞书应用凭证。令牌只保存在同事自己浏览器的 localStorage 里；页面提供「清除令牌」按钮，在公共电脑上用完请点一下。如需回收权限，在 GitHub 上删除该令牌即可，站点无需改动。
+
+同事使用说明：平时直接点「开始同步」即可（约 1 分钟）。只有在飞书里换过图、但网站仍显示旧图时，才勾选「强制重新校验全部图片」（约 15 分钟）。
+
 ## 重新同步数据（需要飞书应用凭证）
 
 复制 `.env.example` 为 `.env`，填入自己的飞书自建应用 `FEISHU_APP_ID` / `FEISHU_APP_SECRET`（该应用需要有对应电子表格的读取权限），然后：
