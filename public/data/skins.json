@@ -36477,18 +36477,18 @@
     }
   },
   {
-    "id": "quillen-sanguine-rouge",
+    "id": "quillen-sanguine-rogue",
     "rowNumber": 345,
     "heroName": "Quillen",
     "heroRoles": [
       "刺客"
     ],
-    "skinName": "Sanguine Rouge",
+    "skinName": "Sanguine Rogue",
     "poster": {
       "token": "NiM6bjjwkoouxcxXihcc0SvonIY",
       "status": "ok",
-      "local": "/images/skins/quillen-sanguine-rouge.webp?v=NiM6bjjwko",
-      "thumbnail": "/images/skins/quillen-sanguine-rouge.webp?v=NiM6bjjwko"
+      "local": "/images/skins/quillen-sanguine-rogue.webp?v=NiM6bjjwko",
+      "thumbnail": "/images/skins/quillen-sanguine-rogue.webp?v=NiM6bjjwko"
     },
     "qualityTag": "Epic",
     "qualityTagImage": {
@@ -36512,13 +36512,13 @@
     "hasIpCollab": null,
     "ipName": "",
     "note": "AI_TRANSLATE(W345,\"zh\") / 1 มิ.ย. 2020",
-    "searchText": "Quillen Sanguine Rouge 刺客 Epic S+ 战令获取",
+    "searchText": "Quillen Sanguine Rogue 刺客 Epic S+ 战令获取",
     "raw": {
       "__rowNumber": 345,
       "序号": 344,
       "hero_name": "Quillen",
       "英雄职业": "VLOOKUP(B345,'英雄详情'!B:D,3,)",
-      "皮肤名称": "Sanguine Rouge",
+      "皮肤名称": "Sanguine Rogue",
       "皮肤海报": {
         "fileToken": "NiM6bjjwkoouxcxXihcc0SvonIY",
         "height": 0,
