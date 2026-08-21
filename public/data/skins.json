@@ -75349,18 +75349,18 @@
     }
   },
   {
-    "id": "quillen-techno-grinder",
+    "id": "quillen-technogrinder",
     "rowNumber": 720,
     "heroName": "Quillen",
     "heroRoles": [
       "刺客"
     ],
-    "skinName": "Techno Grinder",
+    "skinName": "Technogrinder",
     "poster": {
       "token": "VC6qbqQOFo84GuxLJeIcPrzwntg",
       "status": "ok",
-      "local": "/images/skins/quillen-techno-grinder.webp?v=VC6qbqQOFo",
-      "thumbnail": "/images/skins/quillen-techno-grinder.webp?v=VC6qbqQOFo"
+      "local": "/images/skins/quillen-technogrinder.webp?v=VC6qbqQOFo",
+      "thumbnail": "/images/skins/quillen-technogrinder.webp?v=VC6qbqQOFo"
     },
     "qualityTag": "Epic",
     "qualityTagImage": {
@@ -75384,13 +75384,13 @@
     "hasIpCollab": null,
     "ipName": "",
     "note": "AI_TRANSLATE(W720,\"zh\") / 31 ก.ค. 2023",
-    "searchText": "Quillen Techno Grinder 刺客 Epic S+ 限时折扣直售（限时直售，后下架）",
+    "searchText": "Quillen Technogrinder 刺客 Epic S+ 限时折扣直售（限时直售，后下架）",
     "raw": {
       "__rowNumber": 720,
       "序号": 719,
       "hero_name": "Quillen",
       "英雄职业": "VLOOKUP(B720,'英雄详情'!B:D,3,)",
-      "皮肤名称": "Techno Grinder",
+      "皮肤名称": "Technogrinder",
       "皮肤海报": {
         "fileToken": "VC6qbqQOFo84GuxLJeIcPrzwntg",
         "height": 0,
@@ -93507,18 +93507,18 @@
     }
   },
   {
-    "id": "marja-shadow-graph",
+    "id": "marja-shadowgraphy",
     "rowNumber": 901,
     "heroName": "Marja",
     "heroRoles": [
       "法师"
     ],
-    "skinName": "Shadow Graph",
+    "skinName": "Shadowgraphy",
     "poster": {
       "token": "CYyCby16XoTFnhxeCu1caR8Fn4b",
       "status": "ok",
-      "local": "/images/skins/marja-shadow-graph.webp?v=CYyCby16Xo",
-      "thumbnail": "/images/skins/marja-shadow-graph.webp?v=CYyCby16Xo"
+      "local": "/images/skins/marja-shadowgraphy.webp?v=CYyCby16Xo",
+      "thumbnail": "/images/skins/marja-shadowgraphy.webp?v=CYyCby16Xo"
     },
     "qualityTag": "Epic",
     "qualityTagImage": {
@@ -93542,13 +93542,13 @@
     "hasIpCollab": null,
     "ipName": "",
     "note": "20 ธ.ค. 2024",
-    "searchText": "Marja Shadow Graph 法师 Epic S+ 抽折扣直售",
+    "searchText": "Marja Shadowgraphy 法师 Epic S+ 抽折扣直售",
     "raw": {
       "__rowNumber": 901,
       "序号": 900,
       "hero_name": "Marja",
       "英雄职业": "VLOOKUP(B901,'英雄详情'!B:D,3,)",
-      "皮肤名称": "Shadow Graph",
+      "皮肤名称": "Shadowgraphy",
       "皮肤海报": {
         "fileToken": "CYyCby16XoTFnhxeCu1caR8Fn4b",
         "height": 0,
