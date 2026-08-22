@@ -63480,7 +63480,14 @@
       "备注.1": "AI_TRANSLATE(W603,\"zh\")",
       "备注.2": "3 ก.ย. 2022",
       "备注.3": "แจกฟรีในกิจกรรม",
-      "备注.4": ""
+      "备注.4": {
+        "fileToken": "HjCnbqHmFodcFIxYHnrcJaUfnud",
+        "height": 63,
+        "link": "https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/v2/cover/HjCnbqHmFodcFIxYHnrcJaUfnud/?height=1280&mount_node_token=VSFrsnjtyhMJq0tYsW9c5tVPnMg&mount_point=sheet_image&policy=equal&width=1280",
+        "text": "",
+        "type": "embed-image",
+        "width": 165
+      }
     }
   },
   {
@@ -92261,10 +92268,10 @@
     ],
     "skinName": "Wasteland Explorer",
     "poster": {
-      "token": "Ox9nbBb1moG59Xx6htBcmrPtnKb",
+      "token": "TUJ8bXJ6poRSkMxQFGCcmfeCn6c",
       "status": "ok",
-      "local": "/images/skins/bright-wasteland-explorer.webp?v=Ox9nbBb1mo",
-      "thumbnail": "/images/skins/bright-wasteland-explorer.webp?v=Ox9nbBb1mo"
+      "local": "/images/skins/bright-wasteland-explorer.webp?v=TUJ8bXJ6po",
+      "thumbnail": "/images/skins/bright-wasteland-explorer.webp?v=TUJ8bXJ6po"
     },
     "qualityTag": "EVO",
     "qualityTagImage": {
@@ -92296,12 +92303,12 @@
       "英雄职业": "VLOOKUP(B888,'英雄详情'!B:D,3,)",
       "皮肤名称": "Wasteland Explorer",
       "皮肤海报": {
-        "fileToken": "Ox9nbBb1moG59Xx6htBcmrPtnKb",
-        "height": 0,
-        "link": "internal-api-space.feishu.cn/space/api/box/stream/download/v2/cover/Ox9nbBb1moG59Xx6htBcmrPtnKb?height=1280&width=1280&policy=equal&mount_point=sheet_image&mount_node_token=VSFrsnjtyhMJq0tYsW9c5tVPnMg",
+        "fileToken": "TUJ8bXJ6poRSkMxQFGCcmfeCn6c",
+        "height": 852,
+        "link": "https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/v2/cover/TUJ8bXJ6poRSkMxQFGCcmfeCn6c/?height=1280&mount_node_token=VSFrsnjtyhMJq0tYsW9c5tVPnMg&mount_point=sheet_image&policy=equal&width=1280",
         "text": "",
         "type": "embed-image",
-        "width": 0
+        "width": 1386
       },
       "皮肤品质标签": {
         "fileToken": "IzAsbuTq3odqcrxnasXcuvhvnzd",
