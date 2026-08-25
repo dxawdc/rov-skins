@@ -29342,19 +29342,19 @@
     }
   },
   {
-    "id": "maloch-phantom-pumpkins",
+    "id": "maloch-pumpkin-reaper",
     "rowNumber": 278,
     "heroName": "Maloch",
     "heroRoles": [
       "战士",
       "坦克"
     ],
-    "skinName": "Phantom Pumpkins",
+    "skinName": "Pumpkin Reaper",
     "poster": {
       "token": "Or6DbUCLBoviecxfhMZcfmfYnjb",
       "status": "ok",
-      "local": "/images/skins/maloch-phantom-pumpkins.webp?v=Or6DbUCLBo",
-      "thumbnail": "/images/skins/maloch-phantom-pumpkins.webp?v=Or6DbUCLBo"
+      "local": "/images/skins/maloch-pumpkin-reaper.webp?v=Or6DbUCLBo",
+      "thumbnail": "/images/skins/maloch-pumpkin-reaper.webp?v=Or6DbUCLBo"
     },
     "qualityTag": "EVO",
     "qualityTagImage": {
@@ -29378,13 +29378,13 @@
     "hasIpCollab": null,
     "ipName": "",
     "note": "AI_TRANSLATE(W278,\"zh\") / 29 ต.ค. 2019",
-    "searchText": "Maloch Phantom Pumpkins 战士 坦克 EVO A 限时折扣直售（限时直售，后下架）",
+    "searchText": "Maloch Pumpkin Reaper 战士 坦克 EVO A 限时折扣直售（限时直售，后下架）",
     "raw": {
       "__rowNumber": 278,
       "序号": 277,
       "hero_name": "Maloch",
       "英雄职业": "VLOOKUP(B278,'英雄详情'!B:D,3,)",
-      "皮肤名称": "Phantom Pumpkins",
+      "皮肤名称": "Pumpkin Reaper",
       "皮肤海报": {
         "fileToken": "Or6DbUCLBoviecxfhMZcfmfYnjb",
         "height": 0,
@@ -111061,19 +111061,19 @@
     }
   },
   {
-    "id": "sephera-splash-art",
+    "id": "sephera-professor-carano",
     "rowNumber": 1106,
     "heroName": "Sephera",
     "heroRoles": [
       "法师",
       "辅助"
     ],
-    "skinName": "Splash Art",
+    "skinName": "Professor Carano",
     "poster": {
       "token": "QfODbboRFos8AhxRCZfcIgfenpf",
       "status": "ok",
-      "local": "/images/skins/sephera-splash-art.webp?v=QfODbboRFo",
-      "thumbnail": "/images/skins/sephera-splash-art.webp?v=QfODbboRFo"
+      "local": "/images/skins/sephera-professor-carano.webp?v=QfODbboRFo",
+      "thumbnail": "/images/skins/sephera-professor-carano.webp?v=QfODbboRFo"
     },
     "qualityTag": "Epic",
     "qualityTagImage": {
@@ -111097,13 +111097,13 @@
     "hasIpCollab": null,
     "ipName": "",
     "note": "",
-    "searchText": "Sephera Splash Art 法师 辅助 Epic S+ 赛季",
+    "searchText": "Sephera Professor Carano 法师 辅助 Epic S+ 赛季",
     "raw": {
       "__rowNumber": 1106,
       "序号": 1105,
       "hero_name": "Sephera",
       "英雄职业": "VLOOKUP(B1106,'英雄详情'!B:D,3,)",
-      "皮肤名称": "Splash Art",
+      "皮肤名称": "Professor Carano",
       "皮肤海报": {
         "fileToken": "QfODbboRFos8AhxRCZfcIgfenpf",
         "height": 540,
