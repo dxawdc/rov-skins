@@ -63904,18 +63904,18 @@
     }
   },
   {
-    "id": "lorion-ebony-lord",
+    "id": "lorion-lord-ebony",
     "rowNumber": 608,
     "heroName": "Lorion",
     "heroRoles": [
       "法师"
     ],
-    "skinName": "Ebony lord",
+    "skinName": "lord Ebony",
     "poster": {
       "token": "XrcXbkcpLowY8qxdLe6c7qnInxe",
       "status": "ok",
-      "local": "/images/skins/lorion-ebony-lord.webp?v=XrcXbkcpLo",
-      "thumbnail": "/images/skins/lorion-ebony-lord.webp?v=XrcXbkcpLo"
+      "local": "/images/skins/lorion-lord-ebony.webp?v=XrcXbkcpLo",
+      "thumbnail": "/images/skins/lorion-lord-ebony.webp?v=XrcXbkcpLo"
     },
     "qualityTag": "Epic",
     "qualityTagImage": {
@@ -63939,13 +63939,13 @@
     "hasIpCollab": null,
     "ipName": "",
     "note": "299",
-    "searchText": "Lorion Ebony lord 法师 Epic S+ 直售（上线前期折扣，后原价）",
+    "searchText": "Lorion lord Ebony 法师 Epic S+ 直售（上线前期折扣，后原价）",
     "raw": {
       "__rowNumber": 608,
       "序号": 607,
       "hero_name": "Lorion",
       "英雄职业": "VLOOKUP(B608,'英雄详情'!B:D,3,)",
-      "皮肤名称": "Ebony lord",
+      "皮肤名称": "lord Ebony",
       "皮肤海报": {
         "fileToken": "XrcXbkcpLowY8qxdLe6c7qnInxe",
         "height": 0,
