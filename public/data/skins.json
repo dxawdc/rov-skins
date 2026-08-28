@@ -94176,13 +94176,13 @@
       "local": "/images/skins/krizzix-tarot-weaver.webp?v=AIuzb90Kwo",
       "thumbnail": "/images/skins/krizzix-tarot-weaver.webp?v=AIuzb90Kwo"
     },
-    "qualityTag": "Heroic",
+    "qualityTag": "EVO",
     "qualityTagImage": {
       "token": "HIiMbmXsRoxejsxPBIzcak25nqc",
       "status": "ok",
       "local": "/images/quality-tags/HIiMbmXsRoxejsxPBIzcak25nqc.webp"
     },
-    "quality": "S",
+    "quality": "A",
     "releaseDate": "2025-01-01",
     "releaseYear": 2025,
     "releaseMonth": "2025-01",
@@ -94198,7 +94198,7 @@
     "hasIpCollab": null,
     "ipName": "",
     "note": "",
-    "searchText": "Krizzix Tarot Weaver 辅助 支援 Heroic S 战令获取",
+    "searchText": "Krizzix Tarot Weaver 辅助 支援 EVO A 战令获取",
     "raw": {
       "__rowNumber": 908,
       "序号": 907,
@@ -94221,7 +94221,7 @@
         "type": "embed-image",
         "width": 0
       },
-      "品质": "S",
+      "品质": "A",
       "免费皮对应点券（原价）": "",
       "折合美元": "",
       "首次上线日期": 45658,
@@ -100139,13 +100139,13 @@
       "local": "/images/skins/arduin-champion-s-testament.webp?v=XK3AbRuLWo",
       "thumbnail": "/images/skins/arduin-champion-s-testament.webp?v=XK3AbRuLWo"
     },
-    "qualityTag": "Heroic",
+    "qualityTag": "EVO",
     "qualityTagImage": {
       "token": "IzAsbuTq3odqcrxnasXcuvhvnzd",
       "status": "ok",
       "local": "/images/quality-tags/IzAsbuTq3odqcrxnasXcuvhvnzd.webp"
     },
-    "quality": "S",
+    "quality": "A",
     "releaseDate": "2025-07-05",
     "releaseYear": 2025,
     "releaseMonth": "2025-07",
@@ -100161,7 +100161,7 @@
     "hasIpCollab": null,
     "ipName": "",
     "note": "",
-    "searchText": "Arduin Champion's Testament 战士 坦克 Heroic S 免费获取",
+    "searchText": "Arduin Champion's Testament 战士 坦克 EVO A 免费获取",
     "raw": {
       "__rowNumber": 971,
       "序号": 970,
@@ -100184,7 +100184,7 @@
         "type": "embed-image",
         "width": 0
       },
-      "品质": "S",
+      "品质": "A",
       "免费皮对应点券（原价）": "270",
       "折合美元": "8.4",
       "首次上线日期": 45843,
@@ -107265,13 +107265,13 @@
       "local": "/images/skins/capheny-lily-dream.webp?v=C6J4bLuBvo",
       "thumbnail": "/images/skins/capheny-lily-dream.webp?v=C6J4bLuBvo"
     },
-    "qualityTag": "Heroic",
+    "qualityTag": "EVO",
     "qualityTagImage": {
       "token": "IzAsbuTq3odqcrxnasXcuvhvnzd",
       "status": "ok",
       "local": "/images/quality-tags/IzAsbuTq3odqcrxnasXcuvhvnzd.webp"
     },
-    "quality": "S",
+    "quality": "A",
     "releaseDate": "2026-03-11",
     "releaseYear": 2026,
     "releaseMonth": "2026-03",
@@ -107287,7 +107287,7 @@
     "hasIpCollab": null,
     "ipName": "",
     "note": "",
-    "searchText": "Capheny Lily Dream 射手 Heroic S 免费获取",
+    "searchText": "Capheny Lily Dream 射手 EVO A 免费获取",
     "raw": {
       "__rowNumber": 1058,
       "序号": 1057,
@@ -107310,7 +107310,7 @@
         "type": "embed-image",
         "width": 0
       },
-      "品质": "S",
+      "品质": "A",
       "免费皮对应点券（原价）": "270",
       "折合美元": "8.4",
       "首次上线日期": 46092,
@@ -111212,7 +111212,7 @@
       "IP/名人联动": "",
       "IP/名人名称": "",
       "备注": "",
-      "获取途径（转文本）": "",
+      "获取途径（转文本）": "K1107",
       "本地化元素（转文本）": "",
       "备注.1": "",
       "备注.2": "",
@@ -111291,7 +111291,7 @@
       "IP/名人联动": "",
       "IP/名人名称": "",
       "备注": "",
-      "获取途径（转文本）": "",
+      "获取途径（转文本）": "K1108",
       "本地化元素（转文本）": "",
       "备注.1": "",
       "备注.2": "",
@@ -111371,7 +111371,7 @@
       "IP/名人联动": "",
       "IP/名人名称": "",
       "备注": "",
-      "获取途径（转文本）": "",
+      "获取途径（转文本）": "K1109",
       "本地化元素（转文本）": "",
       "备注.1": "",
       "备注.2": "",
