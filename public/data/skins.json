@@ -105783,18 +105783,18 @@
     }
   },
   {
-    "id": "slimz-florand",
+    "id": "slimz-floraland",
     "rowNumber": 1040,
     "heroName": "Slimz",
     "heroRoles": [
       "射手"
     ],
-    "skinName": "Florand",
+    "skinName": "Floraland",
     "poster": {
       "token": "DaHhbzNP7oj6ncxtBGlcLFqdnLh",
       "status": "ok",
-      "local": "/images/skins/slimz-florand.webp?v=DaHhbzNP7o",
-      "thumbnail": "/images/skins/slimz-florand.webp?v=DaHhbzNP7o"
+      "local": "/images/skins/slimz-floraland.webp?v=DaHhbzNP7o",
+      "thumbnail": "/images/skins/slimz-floraland.webp?v=DaHhbzNP7o"
     },
     "qualityTag": "Epic",
     "qualityTagImage": {
@@ -105818,13 +105818,13 @@
     "hasIpCollab": null,
     "ipName": "",
     "note": "",
-    "searchText": "Slimz Florand 射手 Epic S+ 战令获取",
+    "searchText": "Slimz Floraland 射手 Epic S+ 战令获取",
     "raw": {
       "__rowNumber": 1040,
       "序号": 1039,
       "hero_name": "Slimz",
       "英雄职业": "VLOOKUP(B1040,'英雄详情'!B:D,3,)",
-      "皮肤名称": "Florand",
+      "皮肤名称": "Floraland",
       "皮肤海报": {
         "fileToken": "DaHhbzNP7oj6ncxtBGlcLFqdnLh",
         "height": 0,
