@@ -4,6 +4,14 @@
 
 在线地址：https://dxawdc.github.io/rov-skins/
 
+<!-- caige-author:start -->
+**作者：才哥** · 微信公众号：**可以叫我才哥**
+
+微信扫码关注：
+
+<img src="assets/caige-wechat-qrcode.jpg" alt="微信公众号「可以叫我才哥」扫码关注二维码" width="172" height="172" />
+<!-- caige-author:end -->
+
 ## 功能
 
 - **皮肤明细**：全量皮肤列表，支持按英雄、职业、品质、皮肤标签、获取方式、年份筛选，以及关键词搜索、分页。
